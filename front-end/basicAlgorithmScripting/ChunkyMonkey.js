@@ -13,7 +13,13 @@
 
 function chunkArrayInGroups(arr, size) {
   // Break it up.
-  console.log(arr);
+  var arrDos = [];
+
+for (i = 0; i < arr.length; i = 0) {
+  arrDos.push(arr.splice(i, i+ size));
+};
+
+  console.log(arrDos);
 }
 
 chunkArrayInGroups(["a", "b", "c", "d"], 2);
