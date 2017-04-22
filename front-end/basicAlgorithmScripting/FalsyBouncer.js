@@ -11,8 +11,16 @@
 //bouncer([1, null, NaN, 2, undefined]) should return [1, 2].
 
 function bouncer(arr) {
-  // Don't show a false ID to this bouncer.
-  return arr;
+
+  var invalidNumber = 0;
+  var invalidString = "";
+  var invalidNull = null;
+  var invalidNan = NaN;
+
+  var correctArr = arr.filter(function(arrId) {
+      return arrId !== undefined && arrId !== invalidNumber && arrId !== false && arrId !== invalidString && arrId !== invalidNull && (!isNaN(arrId) || arrId.length > 0);
+    });
+  return correctArr;
 }
 
-bouncer([7, "ate", "", false, 9]);
+bouncer([false, null, 0, undefined, ""]);
