@@ -19,8 +19,14 @@
 //getIndexToIns([2, 5, 10], 15) should return 3.
 
 function getIndexToIns(arr, num) {
-  // Find my place in this sorted array.
-  return num;
+  // firstly add the num within the target array which is arr
+  var adding = arr.push(num);
+  // Then we sort the arr from smaller to bigger
+  arr =  arr.sort(function(a,b) {
+    return a - b;
+  });
+  var spot = arr.indexOf(num);
+  return spot;
 }
 
 getIndexToIns([40, 60], 50);
