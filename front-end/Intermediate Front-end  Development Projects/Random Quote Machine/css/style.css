@@ -3,7 +3,6 @@
   color: black;
 }
 
-
 #quote-block {
   background-color: #ffffff;
   min-height: 20%;
@@ -11,28 +10,29 @@
 
 
 #getQuote {
-  position: fixed;
   margin-bottom: 5%;
   box-shadow: 10px 10px 5px #888888;
   background-color: #546e7a;
   margin : 10px;
-  width: 45%;
   border-color: #546e7a;
+  padding-left: 30%;
+  padding-right: 30%;
+  float: right;
 }
 
-
 #quote-block {
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 5%;
+  margin-right: 5%;
   box-shadow: 10px 10px 5px #888888;
 }
 
 #tweet {
-  position: fixed;
   margin-bottom: 5%;
   box-shadow: 10px 10px 5px #888888;
   background-color: #64b5f6;
   margin : 10px;
-  width: 45%;
   border-color: #64b5f6;
+  padding-left: 30%;
+  padding-right: 30%;
+  float: left;
 }
