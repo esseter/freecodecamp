@@ -11,10 +11,10 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script type="text/javascript" src="js/javascript.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="application/javascript" src="js/javascript.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,35 +22,44 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-<body>
-
-<!-- The header-->
+<body style="background-color: #f5f5f5">
   <div class="container-fluid">
-     <div class="jumbotron title text-center">
-       <h2>Random Quote Generator</h2>
-       <p>Enjoy the best quotes  on this very page</p>
+  <!-- The header-->
+    <div class="container-fluid">
+       <div class="jumbotron title text-center" id="title">
+         <h2>Random Quote Generator</h2>
+         <p>Enjoy the best quotes  on this very page</p>
+      </div>
     </div>
-  </div>
-<!-- End of The Header -->
+  <!-- End of The Header -->
 
-<!-- Start of the Quote and Quoter -->
-  <div class="container-fluid">
-    <div class="panel-group">
-      <div class="panel panel-danger">
-        <div class="panel-heading text-center quoter">
-          The Quoter
+  <!-- Start of the Quote and Quoter -->
+    <div class="container-fluid">
+      <div class="well" id="quote-block">
+          <div class="text-center">
+            <h1 class="quote">The Quote</h1>
+          </div>
+          <div class="text-center inline">
+            <i><h2 class="quoter">The Quoter</h2>
+          </div>
         </div>
-        <div class="panel-body text-center quote">
-          The Quote
-        </div>
+      </div>
+  <!-- End of Quote and Quoter -->
+
+  <!-- The beautiful Button -->
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="container">
+        <button type="button" class="btn btn-danger" id="getQuote" style="width: 45%"><span class="glyphicon glyphicon-refresh"></span> Click</button>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="container">
+        <button type="button" class="btn btn-danger" id="tweet" style="width: 45%"><span class="glyphicon glyphicon-refresh"></span> Tweet</button>
       </div>
     </div>
   </div>
-<!-- End of Quote and Quoter -->
+</div>
 
-<!-- The beautiful Button -->
-  <div class="container-fluid" id="button-block">
-    <button type="button" class="btn btn-danger btn-block"id="getQuote">CLICK</button>
-  </div>
 </body>
 </html>
