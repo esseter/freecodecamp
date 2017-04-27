@@ -17,14 +17,39 @@ $(document).ready(function(){
     });
   });
 
-/*
-  function twitterSplit(test) {
-    test = test.split("");
-    var correctTest = [];
-    for (var i = 3; i < test.length - 6; i++) {
-      correctTest.push(test[i]);
+
+  function twitterSplit(quote,author) {
+    quote = quote.split("");
+    var finalTweet = [];
+    var correctQuote = [];
+    var marks = "\""
+    var marksEnding = "\", "
+
+    for (var i = 3; i < quote.length - 6; i++) {
+      correctQuote.push(quote[i]);
+    };
+
+    if (correctQuote.length + author.length <= 136) {
+      correctQuote = correctQuote.join("");
+      finalTweet.push(marks);
+      finalTweet.push(correctQuote);
+      finalTweet.push(marksEnding);
+      finalTweet.push(author);
+      finalTweet = finalTweet.join("");
+      return finalTweet;
     }
-    return correctTest;
-  }
-twitterSplit("<p>Design is thinking made visual.  <\/p>\n");
- */
+    else {
+      var threeDots = "...";
+      var splicedQuote = correctQuote.splice(0, 140 - author.length - 8);
+
+      splicedQuote = splicedQuote.join("");
+      finalTweet.push(marks);
+      finalTweet.push(splicedQuote);
+      finalTweet.push(threeDots);
+      finalTweet.push(marksEnding);
+      finalTweet.push(author);
+      finalTweet = finalTweet.join("");
+      return finalTweet;
+    }
+  };
+twitterSplit("<p>Design is thinking made visual.<\/p>\n", "Saul Bass");
