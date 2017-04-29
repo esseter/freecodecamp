@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- myStyle -->
     <link href="css/style.css" rel="stylesheet">
+    <!-- Baloo fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,7 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-<body>
+<body id="body">
   <div class="container-fluid" id="fullDiv">
     <div class="" id="centerText">
       <h2>Hello World</h2>
@@ -30,7 +32,7 @@
             <h4 class="description">City</h4>
           </div>
           <div class="col-xs-6">
-            <h4 class="api-results">***</h4>
+            <h4 class="api-results" id="city">***</h4>
           </div>
         </div>
         <div class="row">
@@ -38,7 +40,7 @@
             <h4 class="description">Weather</h4>
           </div>
           <div class="col-xs-6">
-            <h4 class="api-results">***</h4>
+            <h4 class="api-results" id="Weather">***</h4>
           </div>
         </div>
         <div class="row">
@@ -46,15 +48,15 @@
             <h4 class="description">Temperature</h4>
           </div>
           <div class="col-xs-6">
-            <h4 class="api-results">***</h4>
+            <h4 class="api-results" id="temperature">***</h4>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 description">
-            <h4 class="description">Bonus</h4>
+            <h4 class="description">Wind</h4>
           </div>
           <div class="col-xs-6">
-            <h4 class="api-results">***</h4>
+            <h4 class="api-results" id="wind">***</h4>
           </div>
         </div>
         <div class="row">
