@@ -1,12 +1,16 @@
 $(document).ready(function() {
 
+  // Get the location using the web browser plugin
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var lat = position.coords.latitude;
       var lon = position.coords.longitude;
 
+      // Calling the openweathermap API because it is free and can help me fix the problem where the city isn't recognised in most of the weather APP because I live in China
+
       $.ajax({
-        url:'http://api.openweathermap.org/data/2.5/weather?q=shanghai&APPID=8f5646040d13e59ad84bf826809b0216&units=metric',
+        url:'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&APPID=8f5646040d13e59ad84bf826809b0216&units=metric',
         datatype: 'jsonp',
         jsonp : "callback",
         success: function(data) {
@@ -20,19 +24,37 @@ $(document).ready(function() {
           $('#description').html(description);
 
           //changing the background-color according to the temperature
-          // TO FIX
-          
+
           if (temperature >= 20) {
-            $('#body').toggleClass('#hotDiv')
-          }
-          else if (temperature <= 20) {
-            $('#fullDiv').css('backrgound-color', 'blue');
+            var background = $('#fullDiv').css('background-color','#ffcb00');
+            var newBackground = $('#fullDiv').css('background-color','red');
+            background.hide(0);
+            background.show(1500);
+            background.queue(function(){
+              newBackground.show(1500);
+            });
           }
 
-          else {
-            $('#fullDiv').css('backrgound-color', 'blue');
+          else if (temperature < 20 && temperature >= 10) {
+            var background = $('#fullDiv').css('background-color','#ffcb00');
+            var newBackground = $('#fullDiv').css('background-color','#b2dfdb');
+            background.hide(0);
+            background.show(1500);
+            background.queue(function(){
+              newBackground.show(1500);
+            });
           }
-          console.log(temperature);
+          else {
+            var background = $('#fullDiv').css('background-color','#ffcb00');
+            var newBackground = $('#fullDiv').css('background-color','#e1f5fe');
+            background.hide(0);
+            background.show(1500);
+            background.queue(function(){
+              newBackground.show(1500);
+            });
+          }
+
+          // converting celsius to fahrenheit and vice-versa
 
           function convertToF(temperature) {
             var fahrenheit;
@@ -46,7 +68,7 @@ $(document).ready(function() {
             $('#convert').toggleClass('celcius');
             $('#convert').toggleClass('fahrenheit');
             if ($(this).hasClass('celcius')) {
-              $('#temperature').html(convertToF(temperature) + ' °C');
+              $('#temperature').html(convertToF(temperature) + ' °F');
               $('#convert').html('Convert to °F');
               return;
             }
