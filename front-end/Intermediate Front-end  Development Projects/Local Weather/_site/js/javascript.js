@@ -1,20 +1,25 @@
 $(document).ready(function() {
 
-  // Get the location using the web browser plugin
+  /* Get the location using the web browser plugin
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var lat = position.coords.latitude;
       var lon = position.coords.longitude;
+*/
+  $.ajax({
+    url:'http://ipinfo.io/json',
+    success: function(ex) {
+      var city = ex.city;
+      console.log(city);
 
       // Calling the openweathermap API because it is free and can help me fix the problem where the city isn't recognised in most of the weather APP because I live in China
 
       $.ajax({
-        url:'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&APPID=8f5646040d13e59ad84bf826809b0216&units=metric',
+        url:'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=8f5646040d13e59ad84bf826809b0216&units=metric',
         datatype: 'jsonp',
         jsonp : "callback",
         success: function(data) {
-          var city = data.name;
           var weather = data.weather[0].main;
           var temperature = data.main.temp;
           var description = data.weather[0].description;
@@ -79,6 +84,6 @@ $(document).ready(function() {
 
         }
       })
-    });
-  }
+    }
+  });
 })
