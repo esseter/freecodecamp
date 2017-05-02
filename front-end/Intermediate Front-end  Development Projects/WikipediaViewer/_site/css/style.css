@@ -1,0 +1,10 @@
+body {
+  background-color: #f00;
+  font-family: 'Roboto Mono', monospace;
+}
+
+#full-page {
+  min-height: 100%;
+  background-color: #005662;
+  color: white;
+}
