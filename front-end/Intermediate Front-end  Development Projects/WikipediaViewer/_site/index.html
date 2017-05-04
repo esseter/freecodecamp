@@ -26,21 +26,36 @@
   </head>
   <body>
     <div class="full-container text-center" id="full-page">
-      <h1>WIKIPEDIA VIEWER</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4" id="blockOne">
+
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group has-error has-feedback" id="searchBar">
+              <input type="text" class="form-control" placeholder="Start Searching" id="inputBar">
+              <span class="form-control-feedback" id="searchIcon"><i class="fa fa-search" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <div class="col-sm-4" id="blockTwo">
+
+          </div>
+        </div>
+      </div>
       <div id="buttons" class="text-center">
         <div class="col-md-12">
           <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><button type="button" name="button" class="btn btn-default" id="randomButton">Click here for Random Article</button></a>
         </div>
-        <div class="col-md-12">
-          <!-- to be replaced by form/ input -->
-          <div class="form-group has-success has-feedback" id="searchBar">
-            <input type="text" class="form-control" id="inputSuccess2">
-            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-          </div>
-        <!--
-          <button type="button" name="button" class="btn btn-danger" id><i class="fa fa-search" aria-hidden="true"></i></button>
-        -->
-        </div>
       </div>
+      <nav class="navbar navbar-inverse navbar-fixed-bottom" id="footer">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#" id="titleFooter">Wikipedia Search Engine</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" id="name">Powered by 郭路易</a></li>
+          </ul>
+      </div>
+    </nav>
     </div>
   </body>
