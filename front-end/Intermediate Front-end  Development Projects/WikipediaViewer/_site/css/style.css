@@ -63,3 +63,8 @@ body {
   float: right;
   color: white;
 }
+
+.article {
+  padding: 35px;
+  text-align: left;
+}
