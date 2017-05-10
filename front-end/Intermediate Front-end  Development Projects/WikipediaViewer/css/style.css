@@ -68,3 +68,16 @@ body {
   padding: 35px;
   text-align: left;
 }
+
+.title {
+  color: #1a0dab;
+}
+
+.description {
+  color: #545454;
+}
+
+#box {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}

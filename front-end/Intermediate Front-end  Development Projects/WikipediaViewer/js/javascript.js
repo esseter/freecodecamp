@@ -5,7 +5,7 @@ $(document).ready(function() {
   // Using XMLHttpRequest
 
     $.ajax({
-      url: "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Louis&prop=info&inprop=url&utf8=&format=json",
+      url: "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Louis&srlimit=8&prop=info&inprop=url&utf8=&format=json",
 
      dataType: "jsonp",
      success: function(response) {
@@ -14,6 +14,7 @@ $(document).ready(function() {
            showError(keyword);
          }
          else {
+           var objectOne = response[0]
            console.log(response);
          }
     },
