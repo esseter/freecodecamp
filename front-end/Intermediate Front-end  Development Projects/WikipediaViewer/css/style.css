@@ -22,7 +22,7 @@ body {
 
 #searchBar {
   width: auto;
-  top: 100px;
+  padding-top: 40px;
 }
 
 #blockOne {
@@ -39,7 +39,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
   color: white;
-  top: 25%;
+  padding-top: 50px;
 }
 
 #inputBar {
@@ -80,4 +80,16 @@ body {
 #box {
   padding-top: 0px;
   padding-bottom: 0px;
+  min-height: 275px;
+}
+
+#box:hover {
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .6), -3px 2px 2px 1px rgba(0, 0, 0, .9);
+  transition-delay: 100ms;
+  transition-duration: 1000ms;
+}
+
+#box::after {
+  transition-delay: 100ms;
+  transition-duration: 1000ms;
 }
