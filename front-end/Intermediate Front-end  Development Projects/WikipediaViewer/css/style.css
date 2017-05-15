@@ -1,5 +1,5 @@
 body {
-  background-color: #f00;
+  background-color: #005662;
 }
 
 #buttons {
@@ -16,9 +16,7 @@ body {
   font-family: 'Roboto Mono', monospace;
 }
 
-#randomButton {
-  margin-bottom: 20px;
-}
+
 
 #searchBar {
   width: auto;
@@ -61,7 +59,7 @@ body {
 
 #name {
   float: right;
-  color: white;
+  color: #ffffc6;
 }
 
 .article {
@@ -71,10 +69,12 @@ body {
 
 .title {
   color: #1a0dab;
+  font-size: 17px;
 }
 
 .description {
   color: #545454;
+  font-size: 13px;
 }
 
 #box {
@@ -85,11 +85,28 @@ body {
 
 #box:hover {
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .6), -3px 2px 2px 1px rgba(0, 0, 0, .9);
-  transition-delay: 100ms;
-  transition-duration: 1000ms;
+  transition-duration: 2s;
 }
 
 #box::after {
   transition-delay: 100ms;
   transition-duration: 1000ms;
+}
+
+@media screen and (max-width: 840px) {
+  #box {
+    min-height: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #name {
+    margin-top: -50px;
+  }
+  #searchBar {
+    padding-top: 80px;
+  }
+  #searchIcon {
+    padding-top: 89px;
+  }
 }
