@@ -27,3 +27,17 @@
 #category {
   min-width: 100px;
 }
+
+.streamerName {
+  margin-bottom: 0px;
+  float: left;
+}
+
+.activity {
+  float: left;
+  text-align: -webkit-left;
+}
+
+.streamStatus i {
+  padding: 30px;
+}
