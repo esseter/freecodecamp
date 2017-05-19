@@ -9,6 +9,11 @@
   padding-top: 20px;
 }
 
+.logo {
+  width: 70px;
+  height: 70px;
+}
+
 #table {
   margin-top: 5%;
 }
