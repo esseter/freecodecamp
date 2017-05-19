@@ -1,19 +1,18 @@
 $(document).ready(function() {
 
-  var users = ['summit1g', 'GeekandSundry','TimTheTatman','TSM_Dyrus','PlayHearthstone','RPGLimitBreak','FreeCodeCamp']
+  var users = ['summit1g','TimTheTatman','TSM_Dyrus','PlayHearthstone','FreeCodeCamp','GeekandSundry','RPGLimitBreak']
 
   for (var i = 0; i < users.length; i++) {
     var urlStream = 'https://wind-bow.glitch.me/twitch-api/streams/' + users[i];
     var urlChannel = 'https://wind-bow.glitch.me/twitch-api/channels/' + users[i];
     var urlBio = 'https://wind-bow.glitch.me/twitch-api/users/' + users[i];
 
-
     $.getJSON(urlStream, function(data){
-      var live = data.stream;
 
-      if (live === null) {
 
+      if (data.stream === null) {
         $.getJSON(urlBio, function(dataBis) {
+
           var gameOff = dataBis.bio;
           var nameOff = dataBis.display_name;
           var logoOff = dataBis.logo;
