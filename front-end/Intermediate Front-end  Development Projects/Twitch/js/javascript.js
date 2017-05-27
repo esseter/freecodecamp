@@ -22,15 +22,15 @@ $(document).ready(function() {
           return realLinks;
         };
 
-        console.log(makeLinksGreatAgain(links));
 
 
         $.getJSON(makeLinksGreatAgain(data._links.channel), function(dataBis) {
-
+          console.log(dataBis);
           var gameOff = dataBis.game;
           var nameOff = dataBis.display_name;
           var logoOff = dataBis.logo;
-          var htmlOff = '<div class="streamer"><div class="row"><div class="col-xs-3"><img src="'+ logoOff +'" alt="'+ nameOff + '" class="logo"></div><div class="stream"><div class="col-xs-6"><h4 class="streamerName">' + nameOff + '</h4><p class="activity">Usually playing: '+ gameOff +'</p></div></div><div class="streamStatus"><div class="col-xs-3"><i class="fa fa-toggle-off" aria-hidden="true"></i></div></div></div></div>';
+          var urlOff = dataBis.url;
+          var htmlOff = '<div class="streamer"><a id="links" href="' + urlOff +'" target="_blanck"><div class="row"><div class="col-xs-3"><img src="'+ logoOff +'" alt="'+ nameOff + '" class="logo"></div><div class="stream"><div class="col-xs-6"><h4 class="streamerName">' + nameOff + '</h4><p class="activity">Usually playing: '+ gameOff +'</p></div></div><div class="streamStatus"><div class="col-xs-3"><i class="fa fa-toggle-off" aria-hidden="true"></i></div></div></div></a></div>';
           $('#all').append(htmlOff);
           $('#offline').append(htmlOff);
         });
@@ -41,7 +41,7 @@ $(document).ready(function() {
         var logo = data.stream.channel.logo;
         var url = data.stream.channel.url;
 
-        var html = '<div class="streamer"><div class="row"><div class="col-xs-3"><img src="'+ logo +'" alt="'+ name + '" class="logo"></div><div class="stream"><div class="col-xs-6"><h4 class="streamerName">' + name + '</h4><p class="activity">Currently playing: '+ game +'</p></div></div><div class="streamStatus"><div class="col-xs-3"><i class="fa fa-toggle-on" aria-hidden="true"></i></div></div></div></div>';
+        var html = '<div class="streamer"><a id="links" href="' + url +'" target="_blanck"><div class="row"><div class="col-xs-3"><img src="'+ logo +'" alt="'+ name + '" class="logo"></div><div class="stream"><div class="col-xs-6"><h4 class="streamerName">' + name + '</h4><p class="activity">Currently playing: '+ game +'</p></div></div><div class="streamStatus"><div class="col-xs-3"><i class="fa fa-toggle-on" aria-hidden="true"></i></div></div></div></a></div>';
         $('#all').append(html);
         $('#online').append(html);
 

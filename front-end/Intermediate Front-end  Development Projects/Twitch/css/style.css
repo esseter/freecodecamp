@@ -29,6 +29,16 @@
     text-align:center;
 }
 
+.streamer {
+  padding: 10px;
+  transition-duration: 1s;
+}
+
+.streamer:hover {
+  transition-duration: 2s;
+  background-color: hsla(240, 22%, 68%, 0.28);
+}
+
 #category {
   min-width: 100px;
 }
@@ -45,4 +55,23 @@
 
 .streamStatus i {
   padding: 30px;
+}
+
+#links {
+  text-decoration: none;
+  color: black;
+}
+
+@media only screen and (min-width:591px) and (max-width : 773px) {
+  #table {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+}
+
+@media only screen and (min-width:774px) and (max-width : 992px) {
+  #table {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
 }
