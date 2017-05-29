@@ -21,7 +21,15 @@ sumAll([10, 5]) should return 45.
 
 
 function sumAll(arr) {
-  return 1;
+
+  var biggest = Math.max(arr[0], arr[1]);
+  var smallest = Math.min(arr[0], arr[1]);
+
+  for (var i = smallest - 1; i < biggest; i++) {
+    var arrFull = arrFull.push(i + 1);
+  }
+
+  console.log(arrFull);
 }
 
 sumAll([1, 4]);
