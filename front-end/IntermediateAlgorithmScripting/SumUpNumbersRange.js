@@ -24,12 +24,18 @@ function sumAll(arr) {
 
   var biggest = Math.max(arr[0], arr[1]);
   var smallest = Math.min(arr[0], arr[1]);
+  var arrFull = [];
 
   for (var i = smallest - 1; i < biggest; i++) {
-    var arrFull = arrFull.push(i + 1);
-  }
+    arrFull.push(i + 1);
+  };
 
-  console.log(arrFull);
+  var sum = arrFull.reduce(function(acc, val) {
+    return acc + val;
+  })
+
+
+  console.log(sum);
 }
 
 sumAll([1, 4]);
