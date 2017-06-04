@@ -39,7 +39,10 @@ convertToRoman(3999) should return "MMMCMXCIX"
 */
 
 function convertToRoman(num) {
- return num;
+  var digits = num.toString().split("");
+  
+
+ return digits.length;
 }
 
 convertToRoman(36);
