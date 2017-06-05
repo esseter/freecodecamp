@@ -39,10 +39,18 @@ convertToRoman(3999) should return "MMMCMXCIX"
 */
 
 function convertToRoman(num) {
-  var digits = num.toString().split("");
-  
+  var digits = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  var romans = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX' , 'V' ,'IV' , 'I'];
+  var results = '';
 
- return digits.length;
+  for (var i = 0; i < digits.length; i++) {
+    while (digits[i] <= num ) {
+      results += romans[i];
+      num -= digits[i];
+    }
+  }
+
+ return results;
 }
 
 convertToRoman(36);
