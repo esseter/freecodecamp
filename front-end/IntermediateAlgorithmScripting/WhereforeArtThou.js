@@ -25,16 +25,19 @@ whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }],
 whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }],
 { "a": 1, "c": 2 }) should return [{ "a": 1, "b": 2, "c": 2 }]. */
 
-
 function whatIsInAName(collection, source) {
-  // What's in a name?
-  var arr = [];
-  // Only change code below this line
 
-  // Keys of source
   var sourceKeys = Object.keys(source);
-  // Only change code above this line
-    return obj.hasOwnProperty(sourceKeys);
+
+  // filter the collection
+  return collection.filter(function (obj) {
+    for(var i = 0; i < sourceKeys.length; i++) {
+      if(!obj.hasOwnProperty(sourceKeys[i]) || obj[sourceKeys[i]] !== source[sourceKeys[i]]) {
+        return false;
+      }
+    }
+    return true;
+  });
 }
 
 whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }],
