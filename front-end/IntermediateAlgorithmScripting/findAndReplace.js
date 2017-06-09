@@ -27,7 +27,18 @@ should return "Let us get back to more Algorithms".
 */
 
 function myReplace(str, before, after) {
-  return str;
+
+  before = before.split("");
+  after = after.split("");
+  if (before[0] === before[0].toUpperCase()) {
+
+    after[0] = after[0].toUpperCase();
+
+  };
+  before =  before.join("");
+  after = after.join("");
+  var newStr = str.replace(before, after);
+  return newStr;
 }
 
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
