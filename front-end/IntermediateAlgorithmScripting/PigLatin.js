@@ -25,29 +25,30 @@ translatePigLatin("eight") should return "eightway".
 
 
 function translatePigLatin(str) {
-  var vowels = ['a', 'e', 'i', 'o', 'u'];
-  var isVowel = false;
-  str = str.split('');
+    var newArr = [];
+    var empty = "";
 
-  for (var i = 0; i < vowels.length; i++) {
-    if ( str[0] === vowels[i]) {
-      isVowel = true;
+    function isVowel(character) {
+        return !/[aeiou]/.test(character);
     }
-  }
 
-  if (isVowel === true) {
-    var way = "way";
-    str.push(way);
-  }
 
-  else {
-    var firstLetter = str.shift();
-    str.push(firstLetter);
-    var ay = "ay";
-    str.push(ay);
-  }
+    if (!isVowel(str.charAt(0))){
+        return str + "way";
+      }
 
-  return str.join("");
+    else {
+        newArr = str.split("");
+      }
+
+    while (isVowel(newArr[0])) {
+
+
+        empty = newArr.shift();
+        newArr.push(empty);
+    }
+
+
+ return newArr.join("")+"ay";
 }
-
 translatePigLatin("consonant");
