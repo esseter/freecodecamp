@@ -19,17 +19,26 @@ function spinalCase(str) {
   // "It's such a fine line between stupid, and clever."
   // --David St. Hubbins
   str = str.split("");
+  str[0] = str[0].toLowerCase();
   for (var i = 1; i < str.length; i++) {
     var letter = str[i];
-    if (str[i] === letter.toUppercase()) {
-      str[i] = "-" + str[i];
+    if (str[i] === letter.toUpperCase() && str[i] !== " " && str[i] !=="_" && str[i] !== "-") {
+      if (str[i - 1] === "-") {
+        str[i] = str[i].toLowerCase();
+      }
+      else {
+        str[i] = "-" + str[i].toLowerCase();
+      }
     }
 
     else if (str[i] === " ") {
       str[i] = "-";
     }
+    else if (str[i] === "_") {
+      str[i] = "-";
+    }
   }
-  return str;
+  return str.join("");
 }
 
-spinalCase('This Is Spinal Tap');
+spinalCase("Teletubbies say Eh-oh");
