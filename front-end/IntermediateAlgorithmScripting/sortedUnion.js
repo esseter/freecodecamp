@@ -22,7 +22,26 @@ uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]) should return [1, 2, 3, 
 */
 
 
+
 function uniteUnique(arr) {
+  for (var i = 1; i < arguments.length; i++) {
+    var thisArr = arguments[i];
+    for (var j = 0; j < thisArr.length; j++) {
+      for (var k = 0; k < arr.length; k++) {
+        if (arguments[i][j] === arr[k]) {
+          arguments[i].splice(j, 1);
+          j -= 1;
+        }
+      }
+
+    }
+  }
+  for (var l = 1; l < arguments.length; l++) {
+    var arrToPush =  arguments[l];
+    for (var m = 0; m < arrToPush.length; m++) {
+      arr.push(arguments[l][m]);
+    }
+  }
   return arr;
 }
 
