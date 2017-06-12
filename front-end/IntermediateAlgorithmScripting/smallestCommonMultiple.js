@@ -20,8 +20,17 @@ smallestCommons([23, 18]) should return 6056820.
 */
 
 function smallestCommons(arr) {
+
+  var biggest = Math.max(arr[0], arr[1]);
+  var smallest = Math.min(arr[0], arr[1]);
+
+  for (var i = smallest + 1; i < biggest; i++) {
+    arr.push(i);
+  };
+
+
   return arr;
 }
 
 
-smallestCommons([1,5]);
+smallestCommons([5,1]);
