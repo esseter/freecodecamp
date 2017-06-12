@@ -23,15 +23,23 @@ pairElement("TTGAG") should return [["T","A"],["T","A"],["G","C"],
 function pairElement(str) {
   var strClean = [];
   str = str.split("");
-  for(i = 0 ; i < str.length ; i++){
+  for(i = 0 ; i < str.length ; i){
     var strSplit = str.splice(i,1);
-
+    console.log(strSplit);
     switch (strSplit[0]) {
       case 'G':
-        strSplit.push('B');
+        strSplit.push('C');
         strClean.push(strSplit);
         break;
       case 'C':
+        strSplit.push('G');
+        strClean.push(strSplit);
+        break;
+      case 'A':
+        strSplit.push('T');
+        strClean.push(strSplit);
+        break;
+      case 'T':
         strSplit.push('A');
         strClean.push(strSplit);
         break;
@@ -42,4 +50,4 @@ function pairElement(str) {
   return strClean;
 }
 
-pairElement("GCG");
+pairElement("TTGAG");
