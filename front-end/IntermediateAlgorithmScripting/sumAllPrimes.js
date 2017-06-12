@@ -18,7 +18,32 @@ sumPrimes(977) should return 73156.
 */
 
 function sumPrimes(num) {
-  return num;
+
+  function isPrime(n) {
+    for (var i = 2; i < n; i++) {
+      if (n % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  var primes = [0];
+
+  for (var j = 2; j <= num; j++) {
+    if (isPrime(j) === true) {
+      console.log("it is a prime");
+      primes.push(j);
+    }
+  }
+
+  var sum = primes.reduce(function sumUp(a, b) {
+    return a + b;
+  }, 0);
+
+
+
+  return sum;
 }
 
-sumPrimes(10);
+sumPrimes(977);
