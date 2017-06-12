@@ -24,7 +24,12 @@ booWho("false") should return false
 
 function booWho(bool) {
   // What is the new fad diet for ghost developers? The Boolean.
-  return bool;
+  if (bool !== false && bool !==true) {
+    return false;
+  }
+  else {
+    return true;
+  }
 }
 
-booWho(null);
+booWho(true);
