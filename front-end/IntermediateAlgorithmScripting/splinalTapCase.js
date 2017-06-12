@@ -18,6 +18,17 @@ spinalCase("AllThe-small Things") should return "all-the-small-things".
 function spinalCase(str) {
   // "It's such a fine line between stupid, and clever."
   // --David St. Hubbins
+  str = str.split("");
+  for (var i = 1; i < str.length; i++) {
+    var letter = str[i];
+    if (str[i] === letter.toUppercase()) {
+      str[i] = "-" + str[i];
+    }
+
+    else if (str[i] === " ") {
+      str[i] = "-";
+    }
+  }
   return str;
 }
 
