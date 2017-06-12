@@ -20,7 +20,24 @@ convertHTML("abc") should return abc.
 
 function convertHTML(str) {
   // &colon;&rpar;
-  return str;
+
+  var and = /&/gi;
+  str = str.replace(and, "&amp;");
+
+  var open = /</gi;
+  str = str.replace(open, "&lt;");
+
+  var close = />/gi;
+  str = str.replace(close, "&gt;");
+
+  var doubleQuote = /"/gi;
+  str = str.replace(doubleQuote, "&quot;");
+
+  var apostrophe = /'/gi;  
+  str = str.replace(apostrophe, "&apos;");
+
+
+return str;
 }
 
-convertHTML("Dolce & Gabbana");
+convertHTML("Dolce & Gabbana <>");
