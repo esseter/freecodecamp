@@ -24,7 +24,25 @@ sumFibs(75025) should return 135721.
 
 
 function sumFibs(num) {
-  return num;
+  var fibonacci = [1, 1];
+  while (fibonacci[0] + fibonacci[1] <= num) {
+    fibonacci.unshift(fibonacci[0] + fibonacci[1]);
+  }
+
+  var fibonacciOdd = [];
+  
+  for (var i = 0; i < fibonacci.length; i++) {
+    if (fibonacci[i] % 2 === 1) {
+      fibonacciOdd.push(fibonacci[i]);
+      console.log("I just pushed " + fibonacciOdd[0]);
+
+    }
+  }
+  var sum = fibonacciOdd.reduce(sumUp, 0);
+  function sumUp(a, b){
+    return a + b;
+  }
+  return sum;
 }
 
-sumFibs(4);
+sumFibs(75025);
