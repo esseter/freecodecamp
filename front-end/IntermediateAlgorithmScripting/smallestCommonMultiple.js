@@ -28,8 +28,49 @@ function smallestCommons(arr) {
     arr.push(i);
   };
 
+  //find all the prime numbers for each members of the array
+  var divisors = [];
+  for (var j = 0; j < arr.length; j++) {
+    for (var k = 0; k <= arr[j]; k++) {
+      if (arr[j] % k == 0) {
+        divisors.push(k);
+      }
+    }
+  }
+  // Now keep the number occurence to One maximum [5,5,3] becomes [5,3]
 
-  return arr;
+  for (var l = 0; l < divisors.length; l++) {
+    for (var m = 0; m < divisors.length; m++) {
+      if (divisors[l] % divisors [m] === 0 && divisors[l] > divisors[m] && divisors[m] !== divisors[l]) {
+        divisors.splice(m,1);
+        console.log("I kicked out " + divisors[m] +"because " + divisors[l]);
+      }
+    }
+  }
+
+  // now we only keep the prime numbers
+  var primesDivisors = []
+  function isPrime(n) {
+    for (var o = 2; o < n; o++) {
+      if (n % o === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  for (var p = 0; p < divisors.length; p++) {
+    if (isPrime(divisors[p]) === true) {
+      primesDivisors.push(divisors[p]);
+    }
+  }
+  // Finally we make the product
+
+  var product = primesDivisors.reduce(function(a,b){
+    return a * b;
+  })
+
+  return product;
 }
 
 
