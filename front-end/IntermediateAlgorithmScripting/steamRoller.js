@@ -14,7 +14,20 @@
 
 function steamrollArray(arr) {
   // I'm a steamroller, baby
-  return arr;
+  var cleanArray = [];
+  function clearArray(array) {
+    if (Array.isArray(array) === false) {
+      cleanArray.push(array);
+    }
+
+    else {
+      for (var i in array) {
+        clearArray(array[i]);
+      }
+    }
+  }
+  clearArray(arr);
+  return cleanArray;
 }
 
 steamrollArray([1, [2], [3, [[4]]]]);
