@@ -26,7 +26,22 @@
 
 function dropElements(arr, func) {
   // Drop them elements.
-  return arr;
+  var i = 0;
+  while (func(arr[0]) === false || i === 0 || arr.length > 0) {
+    if (func(arr[i]) === false) {
+      if (arr.length === 0) {
+        return [];
+      }
+      else {
+        arr.splice(0,1);
+      }
+    }
+    else if (func(arr[0]) === true) {
+      return arr;
+    }
+  }
 }
 
-dropElements([1, 2, 3], function(n) {return n < 3; });
+
+
+dropElements([1, 2, 3, 4], function(n) {return n > 2;});
