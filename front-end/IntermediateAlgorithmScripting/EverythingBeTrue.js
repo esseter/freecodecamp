@@ -19,8 +19,17 @@
 */
 
 function truthCheck(collection, pre) {
-  // Is everyone being true?
-  return pre;
+  // Create a number to check how many are true.
+  var number = 0;
+  // Check for each object
+  for (var c in collection) {
+    // If it is has property and value is truthy
+    if (collection[c].hasOwnProperty(pre) && Boolean(collection[c][pre])) {
+      number++;
+    }
+  };
+  return number == collection.length;
+
 }
 
 truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"},
