@@ -1,5 +1,6 @@
 /*
-*  Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+*  Create a function that sums two arguments together.
+* If only one argument is provided, then return a function that expects one argument and returns the sum.
 *
 *  For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
 *
@@ -27,7 +28,15 @@
 */
 
 function addTogether() {
-  return false;
+  var magicNumbers = [];
+  for (var i = 0; i < arguments.length; i++) {
+    magicNumbers.push(arguments[i]);
+  }
+
+  if (magicNumbers.length > 1) {
+    var total = magicNumbers.reduce((a,b) => a + b,0);
+    return total;
+  }
 }
 
-addTogether(2,3);
+addTogether(2)(3);
