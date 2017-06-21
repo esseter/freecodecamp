@@ -1,5 +1,5 @@
 /*
-*  Create a function that sums two arguments together.
+*  Create first function that sums two arguments together.
 * If only one argument is provided, then return a function that expects one argument and returns the sum.
 *
 *  For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
@@ -28,14 +28,34 @@
 */
 
 function addTogether() {
-  var magicNumbers = [];
-  for (var i = 0; i < arguments.length; i++) {
-    magicNumbers.push(arguments[i]);
+  var isItNumber = function(number) {
+    if (typeof number !== 'number') {
+      return undefined;
+    }
+    else {
+      return number;
+    }
+  };
+  if (arguments.length > 1) {
+    var first = isItNumber(arguments[0]);
+    var second = isItNumber(arguments[1]);
+    if (first !== undefined && second !== undefined) {
+      return first + second;
+    }
   }
-
-  if (magicNumbers.length > 1) {
-    var total = magicNumbers.reduce((a,b) => a + b,0);
-    return total;
+  else {
+    var third = isItNumber(arguments[0]);
+    if (isItNumber(third)) {
+      return function(arg2) {
+        var fourth = isItNumber(arg2);
+        if (third !== undefined && fourth !== undefined) {
+          return third + fourth;
+        }
+        else {
+          return undefined;
+        }
+      };
+    }
   }
 }
 
