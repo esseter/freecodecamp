@@ -53,9 +53,104 @@ telephoneCheck("(555)5(55?)-5555") should return false.
 
 function telephoneCheck(str) {
   // Good luck!
-  return true;
+  function characterChecker(arr) {
+    arr =  arr.split('');
+    var i = 0;
+    while (i < arr.length) {
+      if (isNaN(arr[i]) === true && arr[i] !== ")" && arr[i] !== "(" && arr[i] !== "-") {
+        return false;
+      }
+      i++;
+    }
+  };
+
+  function numberChecker(num) {
+    var strBis = num.split('');
+    for (var j = 0; j < strBis.length; j++) {
+      if (isNaN(strBis[j]) || strBis[j] == " ") {
+        strBis.splice(j,1);
+        j--;
+      }
+    }
+    if (strBis.length == 10) {
+      return 10;
+    }
+    else if (strBis.length == 11) {
+      return 11;
+    }
+
+    else {
+      return false;
+    }
+  }
+
+  function isThereABracket(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] === "(" || arr[i] === ")") {
+        return true;
+      }
+    }
+  };
+
+
+  function bracketsChecker(arrBis) {
+    console.log(arrBis);
+    for (var i = 0; i < arrBis.length; i++) {
+      if (arrBis[i] == "(") {
+        for (var j = i; j < arrBis.length; j++) {
+          if (arrBis[j] == ")") {
+            return true;
+          }
+        }
+      }
+      else if (arrBis[i] ==")") {
+        for (var k = i; k < arrBis.length; k++) {
+          if (arrBis[k] == "(") {
+            return true;
+          }
+        }
+      }
+    }
+  }
+
+
+  if (numberChecker(str) === 10 && characterChecker(str) === undefined) {
+    str = str.split("");
+    if (!isThereABracket(str)) {
+      return true;
+    }
+    else if (isThereABracket(str) === true && bracketsChecker(str) === true && isNaN(str[0]) === true) {
+      if (str[0] === "(" && str[str.length - 1] === ")") {
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
+    else {
+      return false;
+    }
+  }
+
+  else if (numberChecker(str) === 11 && characterChecker(str) === undefined) {
+    str = str.split('');
+    if (str[0] === "1") {
+      if (!isThereABracket(str)) {
+        return true;
+      }
+      else if (isThereABracket(str) === true && bracketsChecker(str) === true) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+    else {
+      return false;
+    }
+  }
+  else {
+    return false;
+  }
 }
-
-
-
-telephoneCheck("555-555-5555");
+telephoneCheck("555)-555-5555");
