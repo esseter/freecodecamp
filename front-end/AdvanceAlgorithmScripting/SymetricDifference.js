@@ -26,8 +26,25 @@ sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]) s
 sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]) should contain only eight elements.
 */
 
-function sym(args) {
-  return args;
+function sym() {
+  var args = [];
+  for (var i = 0; i < arguments.length; i++) {
+    args.push(arguments[i]);
+  }
+  function symetricDifference(arrOne, arrTwo) {
+    var result = [];
+    arrOne.forEach(function(item) {
+      if (arrTwo.indexOf(item) < 0 && result.indexOf(item) < 0) {
+      result.push(item);
+      }
+    });
+    arrTwo.forEach(function(item) {
+      if (arrOne.indexOf(item) < 0 && result.indexOf(item) < 0) {
+        result.push(item);
+      }
+    });
+    return result;
+  }
+  return args.reduce(symetricDifference);
 }
-
 sym([1, 2, 3], [5, 2, 1, 4]);
