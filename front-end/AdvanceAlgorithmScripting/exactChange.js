@@ -1,12 +1,12 @@
-/* Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price), 
+amount/* Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price),
 payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.
 
 cid is a 2D array listing available currency.
 
-Return the string "Insufficient Funds" if cash-in-drawer is less than the change due. Return the string "Closed"
-if cash-in-drawer is equal to the change due.
+Return the string "Insufficient Funds" if cash-in-drawer is less than the moneyToGiveBack due. Return the string "Closed"
+if cash-in-drawer is equal to the moneyToGiveBack due.
 
-Otherwise, return change in coin and bills, sorted in highest to lowest order.
+Otherwise, return moneyToGiveBack in coin and bills, sorted in highest to lowest order.
 
 Here are some helpful links:
 
@@ -24,11 +24,39 @@ checkCashRegister(19.50, 20.00, [["PENNY", 0.50], ["NICKEL", 0], ["DIME", 0], ["
 
 
 function checkCashRegister(price, cash, cid) {
-  var change;
-  // Here is your change, ma'am.
-  return change;
-}
+  var moneyToGiveBack = 100 * (cash - price);
+  var availableFunds = 0;
 
+  var moneyScale = [1, 5, 10, 25, 100, 500, 1000, 2000, 10000];
+  var amountToReturn = [];
+
+  for (var i = cid.length - 1; i >= 0; i--){
+    var amount = 0;
+    while (moneyScale[i] <= moneyToGiveBack && cid[i][1] > 0 && moneyToGiveBack > 0){
+      cid[i][1] -= moneyScale[i]/100;
+      moneyToGiveBack -= moneyScale[i];
+      amount += moneyScale[i]/100;
+    }
+    if (amount !== 0){
+      amountToReturn.push([cid[i][0], amount]);
+    }
+  }
+
+
+  if (moneyToGiveBack !== 0){
+    console.log("broke");
+    return "Insufficient Funds";
+  }
+
+  for (var j = 0; j < cid.length; j++){
+    if (cid[j][1] > 0){
+      return amountToReturn;
+    }
+  }
+
+  return "Closed";
+
+}
 // Example cash-in-drawer array:
 // [["PENNY", 1.01],
 // ["NICKEL", 2.05],
