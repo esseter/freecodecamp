@@ -31,11 +31,12 @@ function sym() {
   for (var i = 0; i < arguments.length; i++) {
     args.push(arguments[i]);
   }
+
   function symetricDifference(arrOne, arrTwo) {
     var result = [];
     arrOne.forEach(function(item) {
       if (arrTwo.indexOf(item) < 0 && result.indexOf(item) < 0) {
-      result.push(item);
+        result.push(item);
       }
     });
     arrTwo.forEach(function(item) {

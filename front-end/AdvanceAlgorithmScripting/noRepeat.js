@@ -26,7 +26,22 @@ permAlone("aaabb") should return 12.
 
 
 function permAlone(str) {
-  return str;
+
+  var combinations = 0;
+
+  // Function to check if there are different letters within the string
+  function areThereDifferentLetters(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      for (var j = 0; i < arr.length && j !== i; i++) {
+        if (arr[j] !== arr[i]) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  return areThereDifferentLetters(str);
 }
 
-permAlone('aab');
+permAlone('aaa');

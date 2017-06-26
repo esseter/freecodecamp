@@ -54,7 +54,7 @@ telephoneCheck("(555)5(55?)-5555") should return false.
 function telephoneCheck(str) {
   // Good luck!
   function characterChecker(arr) {
-    arr =  arr.split('');
+    arr = arr.split('');
     var i = 0;
     while (i < arr.length) {
       if (isNaN(arr[i]) === true && arr[i] !== ")" && arr[i] !== "(" && arr[i] !== "-") {
@@ -68,18 +68,15 @@ function telephoneCheck(str) {
     var strBis = num.split('');
     for (var j = 0; j < strBis.length; j++) {
       if (isNaN(strBis[j]) || strBis[j] == " ") {
-        strBis.splice(j,1);
+        strBis.splice(j, 1);
         j--;
       }
     }
     if (strBis.length == 10) {
       return 10;
-    }
-    else if (strBis.length == 11) {
+    } else if (strBis.length == 11) {
       return 11;
-    }
-
-    else {
+    } else {
       return false;
     }
   }
@@ -102,8 +99,7 @@ function telephoneCheck(str) {
             return true;
           }
         }
-      }
-      else if (arrBis[i] ==")") {
+      } else if (arrBis[i] == ")") {
         for (var k = i; k < arrBis.length; k++) {
           if (arrBis[k] == "(") {
             return true;
@@ -118,38 +114,29 @@ function telephoneCheck(str) {
     str = str.split("");
     if (!isThereABracket(str)) {
       return true;
-    }
-    else if (isThereABracket(str) === true && bracketsChecker(str) === true && isNaN(str[0]) === true) {
+    } else if (isThereABracket(str) === true && bracketsChecker(str) === true && isNaN(str[0]) === true) {
       if (str[0] === "(" && str[str.length - 1] === ")") {
         return false;
-      }
-      else {
+      } else {
         return true;
       }
-    }
-    else {
+    } else {
       return false;
     }
-  }
-
-  else if (numberChecker(str) === 11 && characterChecker(str) === undefined) {
+  } else if (numberChecker(str) === 11 && characterChecker(str) === undefined) {
     str = str.split('');
     if (str[0] === "1") {
       if (!isThereABracket(str)) {
         return true;
-      }
-      else if (isThereABracket(str) === true && bracketsChecker(str) === true) {
+      } else if (isThereABracket(str) === true && bracketsChecker(str) === true) {
         return true;
-      }
-      else {
+      } else {
         return false;
       }
-    }
-    else {
+    } else {
       return false;
     }
-  }
-  else {
+  } else {
     return false;
   }
 }

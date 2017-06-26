@@ -1,4 +1,5 @@
-amount/* Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price),
+
+/* Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price),
 payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.
 
 cid is a 2D array listing available currency.
@@ -30,26 +31,26 @@ function checkCashRegister(price, cash, cid) {
   var moneyScale = [1, 5, 10, 25, 100, 500, 1000, 2000, 10000];
   var amountToReturn = [];
 
-  for (var i = cid.length - 1; i >= 0; i--){
+  for (var i = cid.length - 1; i >= 0; i--) {
     var amount = 0;
-    while (moneyScale[i] <= moneyToGiveBack && cid[i][1] > 0 && moneyToGiveBack > 0){
-      cid[i][1] -= moneyScale[i]/100;
+    while (moneyScale[i] <= moneyToGiveBack && cid[i][1] > 0 && moneyToGiveBack > 0) {
+      cid[i][1] -= moneyScale[i] / 100;
       moneyToGiveBack -= moneyScale[i];
-      amount += moneyScale[i]/100;
+      amount += moneyScale[i] / 100;
     }
-    if (amount !== 0){
+    if (amount !== 0) {
       amountToReturn.push([cid[i][0], amount]);
     }
   }
 
 
-  if (moneyToGiveBack !== 0){
+  if (moneyToGiveBack !== 0) {
     console.log("broke");
     return "Insufficient Funds";
   }
 
-  for (var j = 0; j < cid.length; j++){
-    if (cid[j][1] > 0){
+  for (var j = 0; j < cid.length; j++) {
+    if (cid[j][1] > 0) {
       return amountToReturn;
     }
   }
@@ -68,4 +69,14 @@ function checkCashRegister(price, cash, cid) {
 // ["TWENTY", 60.00],
 // ["ONE HUNDRED", 100.00]]
 
-checkCashRegister(19.50, 20.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);
+checkCashRegister(19.50, 20.00, [
+  ["PENNY", 1.01],
+  ["NICKEL", 2.05],
+  ["DIME", 3.10],
+  ["QUARTER", 4.25],
+  ["ONE", 90.00],
+  ["FIVE", 55.00],
+  ["TEN", 20.00],
+  ["TWENTY", 60.00],
+  ["ONE HUNDRED", 100.00]
+]);
