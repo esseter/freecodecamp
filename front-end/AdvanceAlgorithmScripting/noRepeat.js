@@ -25,23 +25,21 @@ permAlone("aaabb") should return 12.
 */
 
 
+
 function permAlone(str) {
-
-  var combinations = 0;
-
-  // Function to check if there are different letters within the string
-  function areThereDifferentLetters(arr) {
-    for (var i = 0; i < arr.length; i++) {
-      for (var j = 0; i < arr.length && j !== i; i++) {
-        if (arr[j] !== arr[i]) {
-          return true;
-        }
+  var re=/(.)\1/;
+  function check(p,o){
+    if(o.length){
+      var sum=0;
+      for(var i=0;i<p.length+1;i++){
+        sum+=check(p.slice(0,i).concat(o[0]).concat(p.slice(i)),o.slice(1));
       }
+      return sum;
     }
-    return false;
+    else return !re.test(p.join(''));
   }
-
-  return areThereDifferentLetters(str);
+  return check([],str.split(''));
 }
 
-permAlone('aaa');
+
+permAlone('aab');
