@@ -26,9 +26,29 @@ should return [{name : "iss", orbitalPeriod: 5557},
 */
 
 function orbitalPeriod(arr) {
-  var GM = 398600.4418;
-  var earthRadius = 6367.4447;
-  return arr;
+
+  const GM = 398600.4418; // this will never change before a good billion of years
+  const earthRadius = 6367.4447;// this will never change before a good billion of years
+  var finalObject = [];
+
+  // Now we get the Orbital period with the formula given in the hint number 1 from freecodecamp
+  function getOrbit(object) {
+    var TwoPis = 2 * Math.PI;
+    var addradiusAndAlititude = earthRadius + object.avgAlt;
+    var a = Math.pow(addradiusAndAlititude, 3);
+    var detailedResult = TwoPis * Math.sqrt(a / GM);
+    var result = Math.round(detailedResult);
+    delete object.avgAlt;
+    object.orbitalPeriod = result;
+    return object;
+  }
+  // now we scan the object given as an argument
+  for (var elem in arr) {
+    finalObject.push(getOrbit(arr[elem]));
+  }
+
+  // then we return our final Object we create at the beginning of the function
+  return finalObject;
 }
 
 orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
