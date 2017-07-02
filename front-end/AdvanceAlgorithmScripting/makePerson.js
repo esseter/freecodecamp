@@ -34,26 +34,33 @@ bob.getLastName() should return "Curry" after bob.setFullName("Haskell Curry")
 
 */
 
-var Person = (function() {
-  var firstname, lastname; // These are essentially private variables scoped to this function (an immediately invoked function express or IIFE)
+var Person = function(firstAndLast) {
 
-  function Person(firstAndLast) {
-    firstname = firstAndLast.split(' ')[0]; // set the variables during instantiation
-    lastname = firstAndLast.split(' ')[1];
-  }
-  // these methods have access to the private variables because of closures
-  Person.prototype.getFullName = function() {return firstname + ' ' + lastname; };
-  Person.prototype.setFirstName = function(newFirst) {firstname = newFirst; }; // set the new firstname by overwriting the variable.
-  Person.prototype.getLastName = function() {return lastname; };
-  Person.prototype.getFirstName = function() {return firstname;};
-  Person.prototype.setLastName = function(newLast) {lastname = newLast; };
-  Person.prototype.setFullName = function(firstAndLast) {
-    firstname = firstAndLast.split(' ')[0];
-    lastname = firstAndLast.split(' ')[1];
+  // we rewrite what is needed
+  this.setFullName = function(firstAndLast) {
+    Person.prototype.firstname = firstAndLast.split(' ')[0];
+    Person.prototype.lastname = firstAndLast.split(' ')[1];
   };
-  return Person; // return the Person function so that it can be used in the outside world.
-})(); // we declare a function expression in parenthesis and then imediately invoke it by adding the '()' after it.
-var bob = new Person('Bob Ross'); // business as usual.
-bob.getFullName();
+  this.setFirstName = function(firstname) {
+    Person.prototype.firstname = firstname;
+  };
+  this.setLastName = function(lastname) {
+    Person.prototype.lastname = lastname;
+  };
 
-console.log(Object.keys(bob)); // returns '[]' because bob has no properites
+  // we can now call the updated data
+  this.getLastName = function() {
+    return Person.prototype.lastname;
+  };
+  this.getFirstName = function() {
+    return Person.prototype.firstname;
+  };
+  this.getFullName = function() {
+    return Person.prototype.firstname + " "  + Person.prototype.lastname;
+  };
+
+  this.setFullName(firstAndLast);
+};
+
+var bob = new Person('Bob Ross');
+bob.getFullName();
