@@ -1,0 +1,17 @@
+body {
+  background-color: green;
+}
+
+#full-page {
+  height: 100vh;
+  width: auto;
+  background-color: yellow;
+}
+
+#calculator {
+  width: 330px;
+  height: 400px;
+  left: 50%;
+  margin: 0 auto;
+  margin-top: 100px;
+}
