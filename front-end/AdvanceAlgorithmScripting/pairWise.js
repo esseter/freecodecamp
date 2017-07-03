@@ -1,11 +1,13 @@
-/* Given an array arr, find element pairs whose sum equal the second 
+/* Given an array arr, find element pairs whose sum equal the second
 argument arg and return the sum of their indices.
 
 If multiple pairs are possible that have the same numeric elements
-but different indices, return the smallest sum of indices. Once an element has been used, it cannot be reused to pair with another.
+but different indices, return the smallest sum of indices.
+Once an element has been used, it cannot be reused to pair with another.
 
 For example pairwise([7, 9, 11, 13, 15], 20) returns 6.
-The pairs that sum to 20 are [7, 13] and [9, 11]. We can then write out the array with their indices and values.
+The pairs that sum to 20 are [7, 13] and [9, 11].
+We can then write out the array with their indices and values.
 
 Index	0	1	2	3	4
 Value	7	9	11	13	15
@@ -28,7 +30,41 @@ pairwise([], 100) should return 0.
 */
 
 function pairwise(arr, arg) {
-  return arg;
+  var sumArg = [];
+
+  // we go through the entire array and push the relative indexOf the good numbers for the pairing
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr.length && j != i; j++) {
+      if (arr[i] + arr[j] === arg) {
+        sumArg.push(i);
+        sumArg.push(j);
+        arr[i] += arg + 1; // adding + 1 + arg this way those numbers will never be reused in the future
+        arr[j] += arg + 1; // same
+        console.log('I have changed something');
+      }
+    }
+  }
+
+  // we delete the doublons
+  console.log(sumArg);
+  for (var x = 0; x < sumArg.length; x++) {
+    for (var y = 0; y < sumArg.length && x !== y; y++) {
+      if (sumArg[x] === sumArg[y]) {
+        sumArg.splice(x,1);
+        x--;
+      }
+    }
+  }
+
+  // Make the sum
+  if (sumArg.length !== 0) {
+    return sumArg.reduce(function(a,b){
+      return a+b;
+    });
+  }
+  else {
+    return 0;
+  }
 }
 
-pairwise([1,4,2,3,0,5], 7);
+pairwise([1, 1, 1], 2);
