@@ -5,10 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,29 +14,34 @@
     <![endif]-->
   </head>
   <body>
-    <div class="container-fluid" id="full-page">
-      <div class="title text-center">
-        <h2>javascript calculator</h2>
+    <div id="title">
+      <h2 id="title-text">Calculator 0.1</h2>
+    </div>
+    <div id="calculator">
+      <div class="top">
+        <div class="screen">
+        </div>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-
-        </div>
-        <div class="col-md-4">
-          <div class="span6 well">
-            <div id="calculator">
-              <div class="row-fluid">
-                <a href="#" data-key="10" class="red-buttons buttons">AC</a>
-                <a href="#" data-key="11" class="red-buttons buttons">CE</a>
-                <a href="#" data-key="12" class="math-buttons">%</a>
-                <a href="#" data-key="13" class="math-buttons buttons">x</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-
-        </div>
+      <div class="buttons">
+          <span class="clear">C</span>
+          <span class="operator" id="operator-top">x²</span>
+          <span class="operator" id="operator-top">x³</span>
+          <span class="operator">÷</span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span class="operator">x</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span class="operator">-</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span class="operator" id="plus-operator">+</span>
+          <span>0</span>
+          <span>.</span>
+          <span class="equal">=</span>
       </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

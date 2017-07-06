@@ -1,13 +1,141 @@
-body {
-  background-color: green;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-#full-page {
+html {
   height: 100vh;
   width: auto;
-  background-color: yellow;
+  background: white;
+  background: radial-gradient(circle, #fff 20%, #ccc);
+  background-size: cover;
 }
 
-.buttons {
-  width: 30px;
+body {
+  background-color: none;
+}
+
+#title {
+  margin: 100px auto 30px auto;
+  width: 400px;
+  text-align: center;
+}
+
+#title-text {
+  font-size: 34px;
+  text-transform: uppercase;
+}
+
+#calculator {
+  width: 325px;
+  height: auto;
+  margin: 50px auto;
+  padding: 20px 20px 9px;
+  background: linear-gradient(#acfff3, #00b0ff);
+  border-radius: 3px;
+  box-shadow: 0px 4px 7px rgba(0, 176, 255, 0.21), 0px 10px 15px rgba(0, 0, 0, 0.42);
+}
+
+.top span.clear {
+  float: left;
+}
+
+.top .screen {
+	height: 40px;
+	width: 285px;
+  margin-bottom: 10px;
+	float: right;
+
+	padding: 0 10px;
+
+	background: rgb(255, 255, 255);
+	border-radius: 3px;
+	box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.2);
+	font-size: 17px;
+	line-height: 40px;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+.buttons, .top {
+  overflow: hidden;
+}
+
+.buttons span, span.clear {
+  float: left;
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  width: 66px;
+  height: 36px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
+  margin: 0 7px 11px 0;
+  color: #888;
+  line-height: 36px;
+  text-align: center;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.buttons span.operator {
+  background: rgb(237, 237, 237);
+  margin-right: 0;
+}
+
+.buttons span#operator-top {
+  margin: 0 7px 11px 0;
+}
+
+.buttons span#plus-operator {
+  height: 83px;
+  margin-bottom: -66px;
+  padding-top: 21px;
+  font-size: 28px;
+}
+
+.buttons span.equal {
+  background: #f1ff92;
+  box-shadow: 0 4px 7px #9da853;
+  color: #888e5f;
+}
+
+.buttons span.clear {
+  background: #ff9fa8;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.buttons span.equal:hover {
+  background: #64d75b;
+  box-shadow: 0 4px 7px #56b64b;
+  color: #ffffff;
+}
+
+.buttons span.clear:hover {
+  background: #f68991;
+  box-shadow: 0 4px 7px #d3545d;
+  color: white;
+}
+
+.buttons span:active {
+  box-shadow: 0 0 7px #6b54d3;
+  top: 4px;
+}
+
+.buttons span.equal:active {
+  box-shadow: 0 0 7px #717a33;
+  top: 4px;
+}
+
+.buttons span.clear:active {
+  box-shadow: 0 0 7px #d3545d;
+  top: 4px;
 }
