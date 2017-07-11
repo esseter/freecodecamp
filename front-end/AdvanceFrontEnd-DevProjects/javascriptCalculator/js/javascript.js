@@ -21,7 +21,6 @@ $(document).ready(function() {
       else if (operator != "none" && number[1] == 0) {
         $('.screen').html(key);
         number[1] = Number($('.screen').text());
-        console.log(number);
       }
       else if (operator != "none" && number[1] !== 0) {
         $('.screen').append(key);
@@ -33,6 +32,32 @@ $(document).ready(function() {
     // click on a operator
     else if (key == '÷' || key == '-' || key == '+' || key == 'x²' || key == 'x³' || key == 'x') {
       operator = key;
+      if (number[1] != 0) {
+        if (operator == "x") {
+          result = number[0] * number[1];
+          $('.screen').html(result);
+          number[0] = result;
+          number[1] = 0;
+        }
+        else if (operator == "+") {
+          result = number[0] + number[1];
+          $('.screen').html(result);
+          number[0] = result;
+          number[1] = 0;
+        }
+        else if (operator == "-") {
+          result = number[0] - number[1];
+          $('.screen').html(result);
+          number[0] = result;
+          number[1] = 0;
+        }
+        else if (operator == '÷') {
+          result = number[0] / number[1];
+          $('.screen').html(result);
+          number[0] = result;
+          number[1] = 0;
+        }
+      }
       console.log(operator + "" + number);
     }
   });
