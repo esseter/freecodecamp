@@ -51,3 +51,61 @@ body {
   position: relative;
   top: 0;
 }
+
+.btn {
+  overflow: hidden;
+  height: 36px;
+  width: 36px;
+  top: 0;
+  cursor: pointer;
+  background: white;
+  box-shadow: 0px 4px 7px rgba(0,0,0,0.2);
+  color: #888;
+  line-height: 36px;
+  text-align: center;
+  user-select: none;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+.plus {
+  padding: 5px 12px;
+  background: #7efa80;
+  box-shadow: 0 4px 7px #9da853;
+  color: #888e5f;
+}
+
+.minus {
+  padding: 5px 15px;
+  background: #ff9fa8;
+  box-shadow: 0 4px 7px rgba(0,0,0,0.2);
+  color: white;
+}
+
+.minus:hover {
+  background: #f68991;
+  box-shadow: 0 4px 7px #d3545d;
+  color: white;
+}
+
+.minus:active {
+  box-shadow: 0 0 7px #d3545d;
+}
+
+.plus:hover {
+  background: #64d75b;
+  box-shadow: 0 4px 7px #56b64b;
+  color: #ffffff;
+}
+
+.plus:active {
+  box-shadow: 0 0 7px #717a33;
+}
+
+.number {
+  margin: 10px;
+  font-size: 25px;
+}
