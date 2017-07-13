@@ -20,7 +20,7 @@ body {
 }
 
 .title {
-  margin: 100px auto 60px auto;
+  margin: 50px auto 60px auto;
   text-align: center;
   width: 400px;
 }
@@ -77,6 +77,9 @@ body {
   background: #7efa80;
   box-shadow: 0 4px 7px #9da853;
   color: #888e5f;
+  transition: all 0.2s ease;
+  top: 0;
+  position: relative;
 }
 
 .minus {
@@ -84,6 +87,9 @@ body {
   background: #ff9fa8;
   box-shadow: 0 4px 7px rgba(0,0,0,0.2);
   color: white;
+  transition: all 0.2s ease;
+  top: 0;
+  position: relative;
 }
 
 .minus:hover {
@@ -94,6 +100,7 @@ body {
 
 .minus:active {
   box-shadow: 0 0 7px #d3545d;
+  top: 3px;
 }
 
 .plus:hover {
@@ -104,6 +111,7 @@ body {
 
 .plus:active {
   box-shadow: 0 0 7px #717a33;
+  top: 3px;
 }
 
 .number {
@@ -116,7 +124,11 @@ body {
   height: 300px;
   margin: 30px auto;
   border-radius: 50%;
-  background-color: rgba(0, 255, 154, 0.2);
+  background: linear-gradient(to bottom, #ff9fa8 0%,#ff9fa8 50%,#000000 50%,#7efa80 50%,#7efa80 100%);
+  box-shadow: 0 5px 9px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+  top: 0;
+  position: relative;
 }
 
 .time {
@@ -135,4 +147,16 @@ body {
   text-align: center;
   margin: 20px 50px;
   font-size: 20px;
+}
+
+.instruction {
+  width: 300px;
+  text-align: center;
+  margin: 20px auto 10px auto;
+  text-transform: uppercase;
+}
+
+.illustration:active {
+  box-shadow: 0 0 7px black;
+  top: 5px;
 }
