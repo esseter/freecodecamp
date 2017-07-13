@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pomodoro Clock</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="application/javascript" src="js/javascript.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
@@ -21,15 +22,15 @@
   <div class="settings">
     <div class="rounds">
       <span class="small-title">Rounds</span>
-      <span class="btn minus">-</span>
+      <span class="btn minus" id="minusRound">-</span>
       <span class="number" id="nbRounds">0</span>
-      <span class="btn plus">+</span>
+      <span class="btn plus" id="plusRound">+</span>
     </div>
     <div class="minutes">
       <span class="small-title">Minutes</span>
-      <span class="btn minus">-</span>
+      <span class="btn minus" id="minusMinute">-</span>
       <span class="number" id="nbMinutes">30</span>
-      <span class="btn plus">+</span>
+      <span class="btn plus" id="plusMinute">+</span>
     </div>
   </div>
   <div class="instruction">
@@ -37,10 +38,8 @@
   </div>
   <div class="illustration">
     <div class="time">
-      <h2>30:00</h2>
+      <h2 id="time-left">30:00</h2>
     </div>
   </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </body>
 </html>

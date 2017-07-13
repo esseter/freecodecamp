@@ -5,13 +5,14 @@
   font-family: Arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
+  color: white;
 }
 
 html {
   height: 100vh;
   width: auto;
   background: white;
-  background: radial-gradient(circle, #fff 20%, #ccc);
+  background: radial-gradient(circle, #000000 60%, #c31d1d);
   background-size: cover;
 }
 
@@ -154,6 +155,11 @@ body {
   text-align: center;
   margin: 20px auto 10px auto;
   text-transform: uppercase;
+}
+
+.illustration:hover {
+  user-select: none;
+  cursor: pointer;
 }
 
 .illustration:active {
