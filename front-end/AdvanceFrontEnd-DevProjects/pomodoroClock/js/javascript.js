@@ -26,4 +26,20 @@ $(document).ready(function(){
     $('#nbMinutes').html(minutes);
     $('#time-left').html(minutes + ':00')
   })
-})
+
+  $('.illustration').click(function(){
+    const START = new Date().getTime();
+    console.log(START);
+    const endOfTimer = START + (minutes * 100000);
+    console.log(endOfTimer);
+    var x = setInterval(function() {
+      var actualTime = new Date().getTime();
+      var minuteLeft = endOfTimer - actualTime;
+      var minuteDisplay = Math.floor((minuteLeft % (1000 * 60 * 60)) / (1000 * 60));
+      var secondDisplay = Math.floor((minuteLeft % (1000 * 60)) / 1000);
+      $('#time-left').html(minuteDisplay + ":" + secondDisplay);
+    })
+  })
+
+
+});
