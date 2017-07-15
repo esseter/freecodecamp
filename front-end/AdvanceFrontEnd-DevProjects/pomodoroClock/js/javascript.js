@@ -27,6 +27,16 @@ $(document).ready(function(){
     $('#time-left').html(minutes + ':00')
   })
 
+
+  $('.illustration').click(function() {
+    var clickDate = new Date().getTime();
+
+    function getFinalDate(clickDate, minutes) {
+      
+    }
+    console.log(clickDate);
+  })
+  /*
   $('.illustration').click(function(){
     const START = new Date().getTime();
     console.log(START);
@@ -40,6 +50,7 @@ $(document).ready(function(){
       $('#time-left').html(minuteDisplay + ":" + secondDisplay);
     })
   })
+  */
 
 
 });

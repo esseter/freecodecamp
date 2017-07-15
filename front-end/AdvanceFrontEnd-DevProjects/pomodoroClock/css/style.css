@@ -12,8 +12,7 @@
 html {
   height: 100vh;
   width: auto;
-  background: white;
-  background: radial-gradient(circle, #000000 60%, #c31d1d);
+  background: #18335a;
   background-size: cover;
 }
 
@@ -76,7 +75,7 @@ body {
 
 .plus {
   padding: 5px 12px;
-  background: #7efa80;
+  background: #64d75b;
   box-shadow: 0 4px 7px #9da853;
   color: #888e5f;
   transition: all 0.2s ease;
@@ -86,8 +85,8 @@ body {
 
 .minus {
   padding: 5px 15px;
-  background: #ff9fa8;
-  box-shadow: 0 4px 7px #ff9fa8;
+  background: #ff0018;
+  box-shadow: 0 4px 7px #ff0018;
   color: white;
   transition: all 0.2s ease;
   top: 0;
@@ -95,7 +94,7 @@ body {
 }
 
 .minus:hover {
-  background: #f68991;
+  background: #ff0018;
   box-shadow: 0 4px 7px #d3545d;
   color: black;
 }
@@ -126,7 +125,7 @@ body {
   height: 300px;
   margin: 30px auto;
   border-radius: 50%;
-  background: linear-gradient(to bottom, #ff9fa8 0%,#ff9fa8 50%,#000000 50%,#7efa80 50%,#7efa80 100%);
+  background: linear-gradient(to bottom, #ff0018 0%,#ff0018 50%,#000000 50%,#64d75b 50%,#64d75b 100%);
   box-shadow: 0 5px 9px rgba(0,0,0,0.2);
   transition: all 0.2s ease;
   top: 0;
