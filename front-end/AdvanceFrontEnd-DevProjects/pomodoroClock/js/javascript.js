@@ -42,7 +42,13 @@ $(document).ready(function(){
       var secondsLeft = Math.floor(difference % (1000 * 60) / (1000));
       $('#work-button').css({'background': "black", 'top': '4px'});
       $('#minutes').html(minutesLeft);
-      $('#seconds').html(secondsLeft);
+      if (secondsLeft < 10) {
+        $('#seconds').html('0' + secondsLeft);
+      }
+      else {
+        $('#seconds').html(secondsLeft);
+      }
+
       if (difference < 0) {
         clearInterval(x);
       }
@@ -67,7 +73,13 @@ $(document).ready(function(){
       var secondsLeft = Math.floor(difference % ( 1000 * 60) / (1000));
       $('#rest-button').css({'background': "black", 'top': '4px'});
       $('#minutes').html(minutesLeft);
-      $('#seconds').html(secondsLeft);
+      if (secondsLeft < 10) {
+        $('#seconds').html('0' + secondsLeft);
+      }
+      else {
+        $('#seconds').html(secondsLeft);
+      }
+
 
       if (difference < 60) {
         clearInterval(x);
