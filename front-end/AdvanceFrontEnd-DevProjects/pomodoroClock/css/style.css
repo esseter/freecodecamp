@@ -125,8 +125,8 @@ body {
   height: 200px;
   margin: 30px auto;
   border-radius: 50%;
-  background: linear-gradient(to bottom, #ff0018 0%,#ff0018 50%,#000000 50%,#64d75b 50%,#64d75b 100%);
-  box-shadow: 0 5px 9px rgba(0,0,0,0.2);
+  border: 6px solid white;
+  box-shadow: inset 1px 1px 20px 12px rgba(0,0,0,0.2);
   transition: all 0.2s ease;
   top: 0;
   position: relative;
@@ -135,6 +135,8 @@ body {
 .time {
   width: 200px;
   margin: 80px auto;
+  margin-left: -6px;
+  margin-top: 70px;
   text-align: center;
   position: absolute;
 }
@@ -193,4 +195,16 @@ body {
 .start-button:active {
   top: 4px;
   box-shadow: 0 1px 1px #000000;
+}
+
+#minutes {
+  font-size: 35px;
+}
+
+#colon {
+  font-size: 35px;
+}
+
+#seconds {
+  font-size: 35px;
 }
