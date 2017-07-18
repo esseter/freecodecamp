@@ -29,25 +29,26 @@ $(document).ready(function(){
 
 
   $('#work-button').click(function(){
-    var now = new Date();
-    var hoursEnd = now.getHours();
-    var minutesEnd = now.getMinutes() + minutes;
-    if (minutesEnd + minutes < 60) {
-      hoursEnd =+ 1;
-      minutesEnd = minutesEnd - 60;
-      }
+    var now = new Date().getTime();
+    var end = now + minutes * 1000 * 60;
 
-    var end = new Date(now.getMonth() + " " + now.getDay() + ", " + now.getYear() + " " + hoursEnd + ":" + minutesEnd + ":" + now.getSeconds());
-    console.log(now);
     var x = setInterval(function(){
-        var newNow = new Date().getTime();
-        var difference = end - now;
-        var countMinutes = Math.floor((difference %(1000 * 60 * 60)) / (1000 * 60));
-        var countSeconds = Math.floor((difference % (1000 % 60)) / 1000);
+      var newNow = new Date().getTime(); // lol
+      var difference = end - newNow;
+      var minutesLeft = Math.floor(difference % (1000 * 60 * 60) / (1000 * 60));
+      var secondsLeft = Math.floor(difference % (1000 * 60) / (1000));
 
-        $('#minutes').html(countMinutes);
-        $('#seconds').html(countSeconds);
+      $('#minutes').html(minutesLeft);
+      $('#seconds').html(secondsLeft);
+      if (difference < 0) {
+        clearInterval(x);
+      }
+      $()
     })
+
+    console.log();
+
+
   })
 
 });
