@@ -16,6 +16,58 @@ html {
   background-size: cover;
 }
 
+.popup {
+  display: none; /* hidden by default */
+  position: fixed; /* stay in place */
+  z-index: 1; /* stay on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  border: 3px solid white;
+}
+
+.text {
+  font-size: 25px;
+}
+
+.textAll {
+  width: 150px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.popup-content {
+    margin: 200px auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 350px;
+    height: 350px;
+    color: black;
+    background: black;
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    -webkit-transition: color 0.5s;
+    -moz-transition:    color 0.5s;
+    -ms-transition:     color 0.5s;
+    -o-transition:      color 0.5s;
+    transition:         color 0.5s;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .title {
   margin: 10px auto;
   width: 390px;
