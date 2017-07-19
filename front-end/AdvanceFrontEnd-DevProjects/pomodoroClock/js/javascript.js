@@ -1,6 +1,9 @@
 $(document).ready(function(){
   var rest = 5;
   var minutes = 30;
+  var audio= new Audio('https://www.soundjay.com/clock/sounds/crank-1.mp3');
+  var title = document.title;
+
 
   $('#minusRound').click(function(){
     if (rest != 0) {
@@ -49,8 +52,11 @@ $(document).ready(function(){
         $('#seconds').html(secondsLeft);
       }
 
-      if (difference < 0) {
+      if (difference <= 0) {
         clearInterval(x);
+      }
+      else if (difference <= 3000) {
+        audio.play();
       }
       $('#work-button').click(function() {
         clearInterval(x);
@@ -65,7 +71,6 @@ $(document).ready(function(){
     $('#work-button').css({'background': "white", 'top': '0px'});
     var now = new Date().getTime();
     var end = now + rest * 1000 * 60; // translate final date to milliseconds
-
     var x = setInterval(function(){
       var newNow = new Date().getTime();
       var difference = end - newNow;
@@ -81,10 +86,13 @@ $(document).ready(function(){
       }
 
 
-      if (difference < 60) {
+      if (difference <= 0) {
         clearInterval(x);
       }
 
+      else if (difference <= 3000) {
+        audio.play();
+      }
       $('#work-button').click(function() {
         clearInterval(x);
       })
