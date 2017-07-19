@@ -37,7 +37,7 @@ $(document).ready(function(){
     $('#rest-button').css({'background': "white", 'top': '0px'});
     var now = new Date().getTime();
     var end = now + minutes * 1000 * 60; // translaste final date to milliseconds
-
+    document.title = "The work session is on going";
     var x = setInterval(function(){
       var newNow = new Date().getTime(); // lol
       var difference = end - newNow;
@@ -54,6 +54,7 @@ $(document).ready(function(){
 
       if (difference <= 0) {
         clearInterval(x);
+        document.title = "The work session is over";
       }
       else if (difference <= 3000) {
         audio.play();
@@ -71,6 +72,8 @@ $(document).ready(function(){
     $('#work-button').css({'background': "white", 'top': '0px'});
     var now = new Date().getTime();
     var end = now + rest * 1000 * 60; // translate final date to milliseconds
+    document.title = "The rest session is on going";
+
     var x = setInterval(function(){
       var newNow = new Date().getTime();
       var difference = end - newNow;
@@ -87,6 +90,7 @@ $(document).ready(function(){
 
 
       if (difference <= 0) {
+        document.title = "The rest session is over";
         clearInterval(x);
       }
 
@@ -95,10 +99,10 @@ $(document).ready(function(){
       }
       $('#work-button').click(function() {
         clearInterval(x);
-      })
+      });
       $('#rest-button').click(function(){
         clearInterval(x);
-      })
+      });
     })
   })
 
