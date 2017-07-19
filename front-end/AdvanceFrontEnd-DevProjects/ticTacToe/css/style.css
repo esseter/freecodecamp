@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, Arial, sans-serif;
+  font-size: 81px;
+  font-weight: bold;
+  color: white;
+  user-select: none;
+}
+
+html {
+  height: 100vh;
+  width: auto;
+  background: #18335a;
+  background-size: cover;
+}
+
+.title {
+  margin: 10px auto;
+  width: 390px;
+  text-align: center;
+  font-size: 0px;
+}
+
+.title:hover {
+  color: red;
+}
+
+.box {
+  width: 390px;
+  height: 390px;
+  margin: 50px auto 60px auto;
+  position: relative;
+}
+
+.cases {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+  border: 1px solid black;
+  text-align: center;
+  float: left;
+}
+
+#one {
+  color: lime;
+  -webkit-transition: color 1s;
+  -moz-transition:    color 1s;
+  -ms-transition:     color 1s;
+  -o-transition:      color 1s;
+  transition:         color 1s;
+}
+
+#two {
+  color: lime;
+  -webkit-transition: color 0.5s;
+  -moz-transition:    color 0.5s;
+  -ms-transition:     color 0.5s;
+  -o-transition:      color 0.5s;
+  transition:         color 0.5s;
+}
+
+#three {
+  color: lime;
+  -webkit-transition: color 1s;
+  -moz-transition:    color 1s;
+  -ms-transition:     color 1s;
+  -o-transition:      color 1s;
+  transition:         color 1s;
+}
+
+#four {
+  color: lime;
+  -webkit-transition: color 0.5s;
+  -moz-transition:    color 0.5s;
+  -ms-transition:     color 0.5s;
+  -o-transition:      color 0.5s;
+  transition:         color 0.5s;
+}
+
+#five {
+  color: lime;
+  -webkit-transition: color 1s;
+  -moz-transition:    color 1s;
+  -ms-transition:     color 1s;
+  -o-transition:      color 1s;
+  transition:         color 1s;
+}
+
+#one:hover {
+  color: red;
+}
+#two:hover {
+  color: red;
+}
+#three:hover {
+  color: red;
+}
+#four:hover {
+  color: red;
+}
+#five:hover {
+  color: red;
+}
