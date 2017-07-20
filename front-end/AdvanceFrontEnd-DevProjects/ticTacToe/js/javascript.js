@@ -33,8 +33,12 @@ function diagonalTest(who){
 };
 
 function rowTest(who){
-  if ((cases[0] == who && cases[0] == cases[1] && cases[1] == cases[2]) || (cases[3] == who && cases[3] == cases[4] && cases[4] == cases[5]) || (cases[6] == who && cases[6] == cases[7] && cases[7] == cases[8])) {
-
+  if ((cases[0] == who && cases[0] == cases[1] && cases[1] == cases[2]) || (cases[3] == who && cases[3] == cases[4] && cases[4] == cases[5])) {
+    $('.end-popup').css('display','block');
+    $('#text').html(who +' wins');
+    return true;
+  }
+  else if (cases[6] == cases[7] && cases[7] == cases[8]) {
     $('.end-popup').css('display','block');
     $('#text').html(who +' wins');
     return true;
@@ -42,8 +46,12 @@ function rowTest(who){
 };
 
 function columnTest(who){
-  if ((cases[0] == who && cases[0] == cases[3] && cases[3] == cases[6]) || (cases[1] == who && cases[1] == cases[4] && cases[4] == cases[7]) || (cases[2] == who && cases[2] == cases[5] && cases[5] == cases [8])) {
+  if ((cases[0] == who && cases[0] == cases[3] && cases[3] == cases[6]) || (cases[1] == who && cases[1] == cases[4] && cases[4] == cases[7])) {
 
+    $('.end-popup').css('display','block');
+    return true;
+  }
+  else if (who == cases[2] && cases[2] == cases[8] && cases[5] == cases[8]) {
     $('.end-popup').css('display','block');
     return true;
   }
@@ -51,7 +59,6 @@ function columnTest(who){
 
 function draw(){
   if (diagonalTest(user) != true && rowTest(user) != true && columnTest(user) != true && userToken.length == 5) {
-    console.log('draw');
     $('.end-popup').css('display','block');
     $('#text').html('nobody wins');
   }
@@ -79,7 +86,7 @@ function computerMove(){
   else if (cases[4] == user && userToken.length != 1) {
     if (cases[0] == user && cases[8] == '') {
       $('#Nine').html(computer);
-      cases[8] = $('#Nine').html(computer);
+      cases[8] = $('#Nine').html();
       computerToken.push(8);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
         $('#text').html('LOST');
@@ -310,7 +317,6 @@ function computerMove(){
       cases[0] = $(this).html();
       userToken.push(0);
 
-      console.log(userToken);
       if (diagonalTest(user) == true || rowTest(user) == true || columnTest(user) == true) {
         $('#text').html('WIN');
       }
