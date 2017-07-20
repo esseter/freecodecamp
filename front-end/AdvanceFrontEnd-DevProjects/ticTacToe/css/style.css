@@ -48,6 +48,33 @@ html {
     border: 3px solid white;
 }
 
+
+.end-popup {
+  display: none; /* hidden by default */
+  position: fixed; /* stay in place */
+  z-index: 1; /* stay on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.retry {
+  font-size: 35px;
+}
+
+.end-popup-content {
+    margin: 200px auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 350px;
+    height: 350px;
+    color: black;
+    background: black;
+    border: 3px solid white;
+}
+
 /* The Close Button */
 .close {
     color: red;
@@ -78,6 +105,45 @@ html {
 
 #twitter:hover {
   color: red;
+}
+
+#text {
+  cursor: pointer;
+  -webkit-transition: color 1s;
+  -moz-transition:    color 1s;
+  -ms-transition:     color 1s;
+  -o-transition:      color 1s;
+  transition:         color 1s;
+}
+
+#text:hover {
+  color: lime;
+}
+
+#result {
+  margin-top: 10px;
+}
+
+#retry {
+  font-size: 45px;
+  background: white;
+  color: black;
+  top: 0;
+  cursor: pointer;
+  -webkit-transition: color 1s;
+  -moz-transition:    color 1s;
+  -ms-transition:     color 1s;
+  -o-transition:      color 1s;
+  transition:         color 1s;
+}
+
+#retry:hover {
+  color: lime;
+  background: yellow;
+}
+
+#retry:active {
+    top: 4px;
 }
 
 .title {
@@ -227,6 +293,7 @@ html {
 #X:hover {
   color: lime;
 }
+
 
 #O {
   cursor: pointer;

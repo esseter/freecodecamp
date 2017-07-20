@@ -25,18 +25,26 @@ $(document).ready(function(){
 
 function diagonalTest(who){
   if ((cases[0] == cases[4] && cases[4] == cases[8]) || (cases[2] == cases[4] && cases[4] == cases[6])) {
+
+    $('.end-popup').css('display','block');
+    $('#text').html(who +' wins');
     return true;
   }
 };
 
 function rowTest(who){
   if ((cases[0] == who && cases[0] == cases[1] && cases[1] == cases[2]) || (cases[3] == who && cases[3] == cases[4] && cases[4] == cases[5]) || (cases[6] == who && cases[6] == cases[7] && cases[7] == cases[8])) {
+
+    $('.end-popup').css('display','block');
+    $('#text').html(who +' wins');
     return true;
   }
 };
 
 function columnTest(who){
   if ((cases[0] == who && cases[0] == cases[3] && cases[3] == cases[6]) || (cases[1] == who && cases[1] == cases[4] && cases[4] == cases[7]) || (cases[2] == who && cases[2] == cases[5] && cases[5] == cases [8])) {
+
+    $('.end-popup').css('display','block');
     return true;
   }
 }
@@ -44,6 +52,8 @@ function columnTest(who){
 function draw(){
   if (diagonalTest(user) != true && rowTest(user) != true && columnTest(user) != true && userToken.length == 5) {
     console.log('draw');
+    $('.end-popup').css('display','block');
+    $('#text').html('nobody wins');
   }
 }
 
@@ -72,7 +82,7 @@ function computerMove(){
       cases[8] = $('#Nine').html(computer);
       computerToken.push(8);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if ((cases[2] == user  && cases[0] == '') || (cases[8] == user && cases[0] == '')) {
@@ -80,7 +90,7 @@ function computerMove(){
       cases[0] = computer;
       computerToken.push(0);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[1] == user && cases[7] == '') {
@@ -88,7 +98,7 @@ function computerMove(){
       cases[7] = computer;
       computerToken.push(7);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[3] == user && cases[5] == '') {
@@ -96,7 +106,7 @@ function computerMove(){
       cases[5] = computer;
       computerToken.push(5);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[5] == user && cases[3] == '') {
@@ -104,7 +114,7 @@ function computerMove(){
       cases[3] = computer;
       computerToken.push(3);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[7] == user && cases[1] == '') {
@@ -112,19 +122,18 @@ function computerMove(){
       cases[1] = computer;
       computerToken.push(1);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
   }
 
   else if (cases[4] == computer && userToken.length != 1) {
-    console.log('Iam in');
     if (cases[0] == user && cases[1] == user && cases[2] == '') {
       $('#Three').html(computer);
       cases[2] = computer;
       computerToken.push(2);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[0] == user && cases[3] == user && cases[6] == '') {
@@ -132,7 +141,7 @@ function computerMove(){
       cases[6] = computer;
       computerToken.push(6);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[0] == user && cases[2] == user && cases[1] == '') {
@@ -140,7 +149,7 @@ function computerMove(){
       cases[1] = computer;
       computerToken.push(1);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[1] == user && cases[2] == user && cases[0] == '') {
@@ -148,7 +157,7 @@ function computerMove(){
       cases[0] = computer;
       computerToken.push(0);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[0] == user && cases[6] == user && cases[3] == '') {
@@ -156,7 +165,7 @@ function computerMove(){
       cases[3] = computer;
       computerToken.push(3);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[3] == user && cases[6] == user && cases[0] == '') {
@@ -164,7 +173,7 @@ function computerMove(){
       cases[0] = computer;
       computerToken.push(0);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[8] == user && cases[2] == user && cases[5] == '') {
@@ -172,7 +181,7 @@ function computerMove(){
       cases[5] = computer;
       computerToken.push(5);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[8] == user && cases[5] == user && cases[2] == '') {
@@ -180,7 +189,7 @@ function computerMove(){
       cases[2] = computer;
       computerToken.push(2);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[2] == user && cases[5] == user && cases[8] == '') {
@@ -188,7 +197,7 @@ function computerMove(){
       cases[8] = computer;
       computerToken.push(8);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[8] == user && cases[7] == user && cases[6] == '') {
@@ -196,7 +205,7 @@ function computerMove(){
       cases[6] = computer;
       computerToken.push(6);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[6] == user && cases[7] == user && cases[8] == '') {
@@ -204,7 +213,7 @@ function computerMove(){
       cases[8] = computer;
       computerToken.push(8);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else if (cases[8] == user && cases[6] == user && cases[7] == '') {
@@ -212,7 +221,7 @@ function computerMove(){
       cases[7] = computer;
       computerToken.push(7);
       if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-        console.log("computer won");
+        $('#text').html('LOST');
       }
     }
     else {
@@ -221,7 +230,7 @@ function computerMove(){
         cases[0] = computer;
         computerToken.push(0);
         if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-          console.log("computer won");
+        $('#text').html('LOST');
         }
       }
       else if (cases[1] == '') {
@@ -229,7 +238,7 @@ function computerMove(){
         cases[1] = computer;
         computerToken.push(1);
         if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-          console.log("computer won");
+        $('#text').html('LOST');
         }
       }
       else if (cases[2] == '') {
@@ -237,7 +246,7 @@ function computerMove(){
         cases[2] = computer;
         computerToken.push(2);
         if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-          console.log("computer won");
+        $('#text').html('LOST');
         }
       }
       else if (cases[3] == '') {
@@ -245,7 +254,7 @@ function computerMove(){
         cases[3] = computer;
         computerToken.push(3);
         if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-          console.log("computer won");
+        $('#text').html('LOST');
         }
       }
       else if (cases[4] == '') {
@@ -253,7 +262,7 @@ function computerMove(){
         cases[4] = computer;
         computerToken.push(4);
         if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-          console.log("computer won");
+        $('#text').html('LOST');
         }
       }
       else if (cases[5] == '') {
@@ -261,7 +270,7 @@ function computerMove(){
         cases[5] = computer;
         computerToken.push(5);
         if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-          console.log("computer won");
+        $('#text').html('LOST');
         }
       }
       else if (cases[6] == '') {
@@ -269,7 +278,7 @@ function computerMove(){
         cases[6] = computer;
         computerToken.push(6);
         if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-          console.log("computer won");
+        $('#text').html('LOST');
         }
       }
       else if (cases[7] == '') {
@@ -277,7 +286,7 @@ function computerMove(){
         cases[7] = computer;
         computerToken.push(7);
         if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-          console.log("computer won");
+        $('#text').html('LOST');
         }
       }
       else if (cases[8] == '') {
@@ -285,7 +294,7 @@ function computerMove(){
         cases[8] = computer;
         computerToken.push(8);
         if (diagonalTest(computer) == true || rowTest(computer) == true || columnTest(computer) == true) {
-          console.log("computer won");
+        $('#text').html('LOST');
         }
       }
     }
@@ -301,12 +310,12 @@ function computerMove(){
       cases[0] = $(this).html();
       userToken.push(0);
 
-      computerMove();
-
       console.log(userToken);
       if (diagonalTest(user) == true || rowTest(user) == true || columnTest(user) == true) {
-        console.log("you won");
+        $('#text').html('WIN');
       }
+      draw();
+      computerMove();
     }
   });
 
@@ -316,13 +325,11 @@ function computerMove(){
       cases[1] = $(this).html();
       userToken.push(1);
 
-      computerMove();
-
       if (diagonalTest(user) == true || rowTest(user) == true || columnTest(user) == true) {
-        console.log("you won");
+        $('#text').html('WIN');
       }
       draw();
-
+      computerMove();
     }
   });
 
@@ -332,13 +339,11 @@ function computerMove(){
       cases[2] = $(this).html();
       userToken.push(2);
 
-      computerMove();
-
       if (diagonalTest(user) == true || rowTest(user) == true || columnTest(user) == true) {
-        console.log("you won");
+        $('#text').html('WIN');
       }
       draw();
-
+      computerMove();
     }
   });
 
@@ -348,12 +353,11 @@ function computerMove(){
       cases[3] = $(this).html();
       userToken.push(3);
 
-      computerMove();
-
       if (diagonalTest(user) == true || rowTest(user) == true || columnTest(user) == true) {
-        console.log("you won");
+        $('#text').html('WIN');
       }
       draw();
+      computerMove();
 
     }
   });
@@ -364,13 +368,11 @@ function computerMove(){
       cases[4] = $(this).html();
       userToken.push(4);
 
-      computerMove();
-
       if (diagonalTest(user) == true || rowTest(user) == true || columnTest(user) == true) {
-        console.log("you won");
+        $('#text').html('WIN');
       }
       draw();
-
+      computerMove();
     }
   });
 
@@ -380,13 +382,11 @@ function computerMove(){
       cases[5] = $(this).html();
       userToken.push(5);
 
-      computerMove();
-
       if (diagonalTest(user) == true || rowTest(user) == true || columnTest(user) == true) {
-        console.log("you won");
+        $('#text').html('WIN');
       }
       draw();
-
+      computerMove();
     }
   });
 
@@ -396,12 +396,11 @@ function computerMove(){
       cases[6] = $(this).html();
       userToken.push(6);
 
-      computerMove();
-
       if (diagonalTest(user) == true || rowTest(user) == true || columnTest(user) == true) {
-        console.log("you won");
+        $('#text').html('WIN');
       }
       draw();
+      computerMove();
     }
   });
 
@@ -411,12 +410,11 @@ function computerMove(){
       cases[7] = $(this).html();
       userToken.push(7);
 
-      computerMove();
-
       if (diagonalTest(user) == true || rowTest(user) == true || columnTest(user) == true) {
-        console.log("you won");
+        $('#text').html('WIN');
       }
       draw();
+      computerMove();
 
     }
   });
@@ -427,13 +425,21 @@ function computerMove(){
       cases[8] = $(this).html();
       userToken.push(8);
 
-      computerMove();
+
 
       if (diagonalTest(user) == true || rowTest(user) == true || columnTest(user) == true) {
-        console.log("you won");
+        $('#text').html('WIN');
       }
       draw();
-
+      computerMove();
     }
   });
+  $('#retry').click(function(){
+    computerToken = [];
+    userToken = [];
+    cases = [[],[],[],[],[],[],[],[],[]];
+    $('.cases').empty();
+    $('#end-pop-up').css('display','none');
+
+  })
 });
