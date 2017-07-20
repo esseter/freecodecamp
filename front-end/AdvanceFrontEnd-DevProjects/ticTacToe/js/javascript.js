@@ -2,6 +2,8 @@ $(document).ready(function(){
 
   var user;
   var computer;
+  var computerToken = [];
+  var userToken = [];
   var cases = [[],[],[],[],[],[],[],[],[]];
 
 
@@ -39,81 +41,151 @@ function columnTest(){
   }
 }
 
+// computer strategy
+
+function computerMove(){
+
+  // first move
+
+  if (user.length == 1) {
+    if (userToken[0] == 4) {
+        $('#Seven').html(computer);
+        cases[6] = $('#Seven').html();
+        computerToken.push(6);
+    }
+
+    else if (userToken[0] == 0 || userToken[0] == 2 || userToken[0] == 6 || userToken == 8) {
+      $('#Five').html(computer);
+      cases[4] = $('#Five').html();
+      computerToken.push(4);
+    }
+  }
+
+};
 
 // may the game begin
+
   $('#One').click(function() {
     if (cases[0] == "") {
       $(this).html(user);
       cases[0] = $(this).html();
+      userToken.push(0);
+
+      computerMove();
+
+      console.log(userToken);
       if (diagonalTest() == true || rowTest() == true || columnTest() == true) {
         console.log("you won");
       }
     }
   });
+
   $('#Two').click(function() {
     if (cases[1] == "") {
-            $(this).html(user);
+      $(this).html(user);
       cases[1] = $(this).html();
+      userToken.push(1);
+
+      computerMove();
+
+      if (diagonalTest() == true || rowTest() == true || columnTest() == true) {
+        console.log("you won");
+      }
     }
   });
+
   $('#Three').click(function() {
     if (cases[2] == "") {
             $(this).html(user);
       cases[2] = $(this).html();
+      userToken.push(2);
+
+      computerMove();
+
       if (diagonalTest() == true || rowTest() == true || columnTest() == true) {
         console.log("you won");
       }
     }
   });
+
   $('#Four').click(function() {Five
     if (cases[3] == "") {
-            $(this).html(user);
+      $(this).html(user);
       cases[3] = $(this).html();
+      userToken.push(3);
+
+      computerMove();
+
       if (diagonalTest() == true || rowTest() == true || columnTest() == true) {
         console.log("you won");
       }
     }
   });
+
   $('#Five').click(function() {
     if (cases[4] == "") {
-            $(this).html(user);
+      $(this).html(user);
       cases[4] = $(this).html();
+      userToken.push(4);
+
+      computerMove();
+
       if (diagonalTest() == true || rowTest() == true || columnTest() == true) {
         console.log("you won");
       }
     }
   });
+
   $('#Six').click(function() {
     if (cases[5] == "") {
       $(this).html(user);
       cases[5] = $(this).html();
+      userToken.push(5);
+
+      computerMove();
+
       if (diagonalTest() == true || rowTest() == true || columnTest() == true) {
         console.log("you won");
       }
     }
   });
+
   $('#Seven').click(function() {
     if (cases[6] == "") {
       $(this).html(user);
       cases[6] = $(this).html();
+      userToken.push(6);
+
+      computerMove();
+
       if (diagonalTest() == true || rowTest() == true || columnTest() == true) {
         console.log("you won");
       }
     }
   });
+
   $('#Eight').click(function() {
     if (cases[7] == "") {
       $(this).html(user);
       cases[7] = $(this).html();
+      userToken.push(7);
+
+      computerMove();
+
       if (diagonalTest() == true || rowTest() == true || columnTest() == true) {
         console.log("you won");
       }
     }
   });
+
   $('#Nine').click(function() {
     if (cases[8] == '') {
       $(this).html(user);
       cases[8] = $(this).html();
+      userToken.push(8);
+
+      computerMove();
+
       if (diagonalTest() == true || rowTest() == true || columnTest() == true) {
         console.log("you won");
       }
