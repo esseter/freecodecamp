@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: white;
+  user-select: none;
+}
+
+html {
+  height: 100vh;
+  width: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: white;
+  background-image:linear-gradient(#434343, #282828);
+}
+
+#squares{
+  background-color: transparent;
+  background-image:       linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+  height:100%;
+  background-size:50px 50px;
+}
+
+.workZone {
+  width: 320px;
+  margin:0 auto;
+}
+
+.title {
+  text-align: center;
+  width: 320px;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  top: 100px;
+  position: absolute;
+}
+
+.toy {
+  top: 200px;
+  width: 320px;
+  height: 320px;
+  z-index: 0;
+  position: absolute;
+  background: #000;
+  border-radius: 50%;
+}
+
+.pad {
+  width: 150px;
+  height: 150px;
+  float: left;
+  z-index: 1;
+  margin: 5px;
+  opacity: 0.7;
+}
+
+#pad1 {
+  border-top-left-radius: 100%;
+  background: green;
+}
+
+#pad2 {
+  float: left;
+  border-top-right-radius: 300px;
+  background-color: red;
+  clear: right;
+}
+
+#pad3 {
+  float: left;
+  border-bottom-left-radius: 300px;
+  background-color: yellow;
+  clear: left;
+}
+
+#pad4 {
+  float: left;
+  border-bottom-right-radius: 300px;
+  background-color: blue;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  top: 115px;
+  height: 90px;
+  width: 90px;
+  background: black;
+  z-index: 3;
+  left: 115px;
+}
