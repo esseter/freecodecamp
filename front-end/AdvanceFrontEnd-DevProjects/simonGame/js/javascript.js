@@ -1,9 +1,13 @@
 $(document).ready(function(){
-  var game = {
+
+  // first we create the all setup in an object that will be modified in real time
+  // once in the game
+
+  var simonGame = {
     count: 0,
-    possibilities: ['#green','#red', '#yellow', '#blue'],
+    colors: ['#green','#red', '#yellow', '#blue'],
     currentGame: [],
-    player: [],
+    playerColors: [],
     sound:{
       green: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
       red: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
@@ -11,5 +15,18 @@ $(document).ready(function(){
       blue: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3')
     },
     godlike: false,
-  }
+  };
+
+  // then we create the function that will modify the object
+
+  function startNewGame() {
+    simonGame.count = 0;
+    simonGame.playerColors = [];
+  };
+
+  function addCount() {
+    simonGame.count = simonGame.count + 1;
+    $('#screen').html(simonGame.count);
+  };
+
 });
