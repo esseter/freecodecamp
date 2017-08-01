@@ -131,7 +131,7 @@ input[type=radio]:checked + label:before {
   transition: all 0.2s ease;
 }
 
-.greenhover {
+.greenbright {
   border-top-left-radius: 100%;
   box-shadow: 0px 0px 20px 9px rgb(11, 180, 4);
   background: rgb(0, 255, 0);
@@ -145,7 +145,7 @@ input[type=radio]:checked + label:before {
   transition: all 0.2s ease;
 }
 
-.redhover {
+.redbright {
   float: left;
   border-top-right-radius: 300px;
   background-color: rgba(255, 0, 0, 1);
@@ -160,7 +160,7 @@ input[type=radio]:checked + label:before {
   transition: all 0.2s ease;
 }
 
-.yellowhover {
+.yellowbright {
   float: left;
   border-bottom-left-radius: 300px;
   background-color: rgb(255, 255, 0);
@@ -174,7 +174,7 @@ input[type=radio]:checked + label:before {
   transition: all 0.2s ease;
 }
 
-.bluehover {
+.bluebright {
   float: left;
   border-bottom-right-radius: 300px;
   background-color: #001dff;

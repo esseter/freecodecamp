@@ -5,7 +5,7 @@ $(document).ready(function(){
 
   var simonGame = {
     count: 0,
-    colors: ['#green','#red', '#yellow', '#blue'],
+    colors: ['green','red', 'yellow', 'blue'],
     currentGame: [],
     playerColors: [],
     sound:{
@@ -31,9 +31,9 @@ $(document).ready(function(){
 
   function colorHover(color) {
     $('#' + color).removeClass(color);
-    $('#' + color).addClass(color + "hover");
+    $('#' + color).addClass(color + "bright");
     setTimeout(function(){
-      $('#' + color).removeClass(color + "hover");
+      $('#' + color).removeClass(color + "bright");
       $('#' + color).addClass(color);
     }, 500);
   };
