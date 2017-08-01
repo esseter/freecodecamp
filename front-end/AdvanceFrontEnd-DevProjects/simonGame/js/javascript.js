@@ -38,10 +38,20 @@ $(document).ready(function(){
     }, 500);
   };
 
-  $('.start-reset').click(function(){
+  function randomColor() {
+    var result =  Math.floor(Math.random() * 4);
+    if (result == 4) {
+      randomColor();
+    }
+    else {
+      return simonGame.colors[result];
+    }
+  };
 
-    colorHover('red')
-    console.log(simonGame.colors[1]);
-  })
+  $('.start-reset').click(function(){
+    colorHover(randomColor());
+    console.log(randomColor());
+  });
+
 
 });
