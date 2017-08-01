@@ -21,6 +21,7 @@ $(document).ready(function(){
 
   function startNewGame() {
     simonGame.count = 0;
+    simonGame.currentGame = [];
     simonGame.playerColors = [];
   };
 
@@ -49,16 +50,20 @@ $(document).ready(function(){
       randomColor();
     }
     else {
+      // we add the color within the current Game option
+      simonGame.currentGame.push(simonGame.colors[result]);
       return simonGame.colors[result];
     }
   };
 
-  
+  function addCount() {
+    simonGame.count++;
+  }
 
   $('.start-reset').click(function(){
     colorHover(randomColor());
-    console.log(randomColor());
+    addCount();
+    console.log(simonGame.currentGame);
   });
-
 
 });
