@@ -29,6 +29,8 @@ $(document).ready(function(){
     $('#screen').html(simonGame.count);
   };
 
+  // animations function on the color
+
   function colorHover(color) {
     $('#' + color).removeClass(color);
     $('#' + color).addClass(color + "bright");
@@ -37,6 +39,9 @@ $(document).ready(function(){
       $('#' + color).addClass(color);
     }, 500);
   };
+
+
+  // choosing a random color function
 
   function randomColor() {
     var result =  Math.floor(Math.random() * 4);
@@ -47,6 +52,8 @@ $(document).ready(function(){
       return simonGame.colors[result];
     }
   };
+
+  
 
   $('.start-reset').click(function(){
     colorHover(randomColor());
