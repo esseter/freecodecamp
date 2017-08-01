@@ -56,9 +56,12 @@ $(document).ready(function(){
     }
   };
 
+  // addcount function
+
   function addCount() {
     simonGame.count++;
   }
+
 
   $('.start-reset').click(function(){
     colorHover(randomColor());
@@ -66,4 +69,12 @@ $(document).ready(function(){
     console.log(simonGame.currentGame);
   });
 
+
+/* things to fix in the future in order to launch the game properly
+  if (simonGame.count > 0) {
+    if (simonGame.playerColors.length() = count) {
+
+    }
+  }
+  */
 });
