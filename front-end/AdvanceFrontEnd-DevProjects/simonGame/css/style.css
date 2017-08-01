@@ -125,18 +125,19 @@ input[type=radio]:checked + label:before {
   cursor: pointer;
 }
 
-#green {
+.green {
   border-top-left-radius: 100%;
   background: rgba(0, 255, 0, 0.50);
   transition: all 0.2s ease;
 }
 
-#green:active {
+.greenhover {
+  border-top-left-radius: 100%;
   box-shadow: 0px 0px 20px 9px rgb(11, 180, 4);
   background: rgb(0, 255, 0);
 }
 
-#red {
+.red {
   float: left;
   border-top-right-radius: 300px;
   background-color: rgba(255, 0, 0, 0.5);
@@ -144,12 +145,14 @@ input[type=radio]:checked + label:before {
   transition: all 0.2s ease;
 }
 
-#red:active {
+.redhover {
+  float: left;
+  border-top-right-radius: 300px;
   background-color: rgba(255, 0, 0, 1);
   box-shadow: 0px 0px 20px 9px rgb(187, 2, 4);
 }
 
-#yellow {
+.yellow {
   float: left;
   border-bottom-left-radius: 300px;
   background-color: rgba(255, 255, 0, 0.5);
@@ -157,19 +160,23 @@ input[type=radio]:checked + label:before {
   transition: all 0.2s ease;
 }
 
-#yellow:active {
+.yellowhover {
+  float: left;
+  border-bottom-left-radius: 300px;
   background-color: rgb(255, 255, 0);
   box-shadow: 0px 0px 20px 9px rgb(188, 180, 4);
 }
 
-#blue {
+.blue {
   float: left;
   border-bottom-right-radius: 300px;
   background-color: rgba(0, 29, 255, 0.3);
   transition: all 0.2s ease;
 }
 
-#blue:active {
+.bluehover {
+  float: left;
+  border-bottom-right-radius: 300px;
   background-color: #001dff;
   box-shadow: 0px 0px 20px 9px rgb(8, 22, 182);
 }

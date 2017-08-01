@@ -17,7 +17,7 @@ $(document).ready(function(){
     godlike: false,
   };
 
-  // then we create the function that will modify the object
+  // then we create the functions that will modify the object
 
   function startNewGame() {
     simonGame.count = 0;
@@ -28,5 +28,20 @@ $(document).ready(function(){
     simonGame.count = simonGame.count + 1;
     $('#screen').html(simonGame.count);
   };
+
+  function colorHover(color) {
+    $('#' + color).removeClass(color);
+    $('#' + color).addClass(color + "hover");
+    setTimeout(function(){
+      $('#' + color).removeClass(color + "hover");
+      $('#' + color).addClass(color);
+    }, 500);
+  };
+
+  $('.start-reset').click(function(){
+
+    colorHover('red')
+    console.log(simonGame.colors[1]);
+  })
 
 });
