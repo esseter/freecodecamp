@@ -64,9 +64,16 @@ $(document).ready(function(){
 
 
   $('.start-reset').click(function(){
-    colorHover(randomColor());
+    randomColor();
+      for (var i = 0; i < simonGame.currentGame.length; i++) {
+        setTimeout(function(){
+          colorHover(simonGame.currentGame[i]);
+          console.log(simonGame.currentGame[i]);
+        },2000)
+      };
+
     addCount();
-    console.log(simonGame.currentGame);
+    console.log(simonGame.currentGame[1]);
   });
 
 
