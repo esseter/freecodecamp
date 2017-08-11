@@ -60,20 +60,28 @@ $(document).ready(function(){
 
   function addCount() {
     simonGame.count++;
+    console.log(simonGame.count);
   }
 
 
   $('.start-reset').click(function(){
-    randomColor();
-      for (var i = 0; i < simonGame.currentGame.length; i++) {
-        setTimeout(function(){
-          colorHover(simonGame.currentGame[i]);
-          console.log(simonGame.currentGame[i]);
-        },2000)
-      };
 
+    if (simonGame.count === 0) {
+      colorHover(randomColor());
+    }
+    else if (simonGame.count > 0) {
+      for (var i = 0 ; i < simonGame.currentGame.length ; i++) {
+        var test = simonGame.currentGame[i];
+        console.log(i);
+        setTimeout(function(){
+          colorHover(test);
+
+        },2000);
+      };
+      colorHover(randomColor());
+    }
     addCount();
-    console.log(simonGame.currentGame[1]);
+    console.log(simonGame.currentGame);
   });
 
 
