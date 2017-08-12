@@ -63,24 +63,23 @@ $(document).ready(function(){
     console.log(simonGame.count);
   }
 
+  function playColor() {
+    var i = 0;
+    var max = simonGame.currentGame.length;
+    setInterval(function(){
+      colorHover(simonGame.currentGame[i]);
+      i++;
+      if (i >= max) {
+        clearInterval(playColor);
+      }
+    }, 1000)
+
+  }
+
 
   $('.start-reset').click(function(){
-
-    if (simonGame.count === 0) {
-      colorHover(randomColor());
-    }
-    else if (simonGame.count > 0) {
-      for (var i = 0 ; i < simonGame.currentGame.length ; i++) {
-        var test = simonGame.currentGame[i];
-        console.log(i);
-        setTimeout(function(){
-          colorHover(test);
-
-        },2000);
-      };
-      colorHover(randomColor());
-    }
-    addCount();
+    randomColor();
+    playColor();
     console.log(simonGame.currentGame);
   });
 
