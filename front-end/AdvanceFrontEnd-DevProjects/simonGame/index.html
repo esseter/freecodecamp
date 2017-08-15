@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Simon Game</title>
-    <link href="https://fonts.googleapis.com/css?family=Kanit:900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="application/javascript" src="js/javascript.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-    <!--[if lt IE 9]>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simon Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Kanit:900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="application/javascript" src="js/javascript.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <div class="workZone">
-      <div class="title">
-        <h2>simon game</h2>
-      </div>
-      <div class="settings">
-        <input id="normal" type="radio" name="difficulty" value="normal" checked><label for="normal">NORMAL</label>
-        <input id="godlike" type="radio" name="difficulty" value="godlike" style="margin-left:30px;"> <label for="godlike">GODLIKE</label>
-      </div>
-      <div class="start-reset">
-        START
-      </div>
-      <div class="toy">
-        <div class="pad green" id="green"></div>
-        <div class="pad red" id="red"></div>
-        <div class="pad yellow" id="yellow"></div>
-        <div class="pad blue" id="blue"></div>
-        <div class="circle">
-          <div class="circle-top">
-            <p>SIMON</p>
-          </div>
-          <div class="circle-bottom">
-            <div class="screen">
-              <p>0</p>
-            </div>
+</head>
+
+<body>
+  <div class="workZone">
+    <div class="title">
+      <h2>simon game</h2>
+    </div>
+    <div class="settings">
+      <input id="normal" type="radio" name="difficulty" value="normal" checked><label for="normal">NORMAL</label>
+      <input id="godlike" type="radio" name="difficulty" value="godlike" style="margin-left:30px;"> <label for="godlike">GODLIKE</label>
+    </div>
+    <div class="start-reset">
+      START
+    </div>
+    <div class="toy">
+      <div class="pad green" id="green"></div>
+      <div class="pad red" id="red"></div>
+      <div class="pad yellow" id="yellow"></div>
+      <div class="pad blue" id="blue"></div>
+      <div class="circle">
+        <div class="circle-top">
+          <p>SIMON</p>
+        </div>
+        <div class="circle-bottom">
+          <div class="screen">
+            <p>0</p>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

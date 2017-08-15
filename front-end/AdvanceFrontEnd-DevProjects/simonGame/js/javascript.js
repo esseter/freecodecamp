@@ -1,14 +1,14 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
   // first we create the all setup in an object that will be modified in real time
   // once in the game
 
   var simonGame = {
     count: 0,
-    colors: ['green','red', 'yellow', 'blue'],
+    colors: ['green', 'red', 'yellow', 'blue'],
     currentGame: [],
     playerColors: [],
-    sound:{
+    sound: {
       green: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
       red: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
       yellow: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'),
@@ -35,7 +35,7 @@ $(document).ready(function(){
   function colorHover(color) {
     $('#' + color).removeClass(color);
     $('#' + color).addClass(color + "bright");
-    setTimeout(function(){
+    setTimeout(function() {
       $('#' + color).removeClass(color + "bright");
       $('#' + color).addClass(color);
     }, 500);
@@ -45,11 +45,10 @@ $(document).ready(function(){
   // choosing a random color function
 
   function randomColor() {
-    var result =  Math.floor(Math.random() * 4);
+    var result = Math.floor(Math.random() * 4);
     if (result == 4) {
       randomColor();
-    }
-    else {
+    } else {
       // we add the color within the current Game option
       simonGame.currentGame.push(simonGame.colors[result]);
       return simonGame.colors[result];
@@ -66,7 +65,7 @@ $(document).ready(function(){
   function playColor() {
     var i = 0;
     var max = simonGame.currentGame.length;
-    setInterval(function(){
+    setInterval(function() {
       colorHover(simonGame.currentGame[i]);
       i++;
       if (i >= max) {
@@ -77,7 +76,7 @@ $(document).ready(function(){
   }
 
 
-  $('.start-reset').click(function(){
+  $('.start-reset').click(function() {
     randomColor();
     playColor();
     console.log(simonGame.currentGame);

@@ -17,16 +17,14 @@ body {
   padding: 0;
   height: 100vh;
   background-image: -webkit-linear-gradient(120deg, #ff2323, #352361);
- background-image: linear-gradient(120deg, #ff2323, #352361);
+  background-image: linear-gradient(120deg, #ff2323, #352361);
 }
 
-#squares{
-
-}
+#squares {}
 
 .workZone {
   width: 320px;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 .title {
@@ -72,7 +70,7 @@ label:before {
   border-radius: 8px;
 }
 
-input[type=radio]:checked + label:before {
+input[type=radio]:checked+label:before {
   content: "\2022";
   color: #ffffff;
   font-size: 30px;
@@ -100,7 +98,7 @@ input[type=radio]:checked + label:before {
   background: #db101b;
 }
 
-.start-reset:active{
+.start-reset:active {
   top: 3px;
   box-shadow: 0 5px 6px rgba(0, 0, 0, 0.2);
 }
