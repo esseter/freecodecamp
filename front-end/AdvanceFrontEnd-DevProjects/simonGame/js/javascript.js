@@ -7,7 +7,7 @@ $(document).ready(function() {
     count: 0,
     colors: ['green', 'red', 'yellow', 'blue'],
     currentGame: [],
-    playerColors: [],
+    playerStreak: [],
     sound: {
       green: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
       red: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
@@ -22,7 +22,7 @@ $(document).ready(function() {
   function startNewGame() {
     simonGame.count = 0;
     simonGame.currentGame = [];
-    simonGame.playerColors = [];
+    simonGame.playerStreak = [];
   };
 
   function addCount() {
@@ -69,17 +69,34 @@ $(document).ready(function() {
       colorHover(simonGame.currentGame[i]);
       i++;
       if (i >= max) {
+        simonGame.playerStreak = [];
         clearInterval(playColor);
       }
     }, 1000)
 
   }
 
+  function playerColor(colorClicked) {
+    if (simonGame.playerStreak.length < simonGame.currentGame.length) {
+      $('#' + colorClicked).removeClass(colorClicked);
+      $('#' + colorClicked).addClass(colorClicked + "bright");
+      setTimeout(function() {
+        $('#' + colorClicked).removeClass(colorClicked + "bright");
+        $('#' + colorClicked).addClass(colorClicked);
+      }, 500);
+      simonGame.playerStreak.push(colorClicked);
+      return simonGame.playerStreak[colorClicked];
+    };
+  }
+
+  $('#red').click(function() {
+    playerColor('red');
+    console.log(simonGame.playerStreak);
+  });
 
   $('.start-reset').click(function() {
     randomColor();
     playColor();
-    console.log(simonGame.currentGame);
   });
 
 });
