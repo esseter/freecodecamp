@@ -76,12 +76,13 @@ $(document).ready(function() {
 
   function playerColor(colorClicked) {
     var clicked = colorClicked;
-    if (simonGame.playerStreak.length < simonGame.currentGame.length) {
-      simonGame.playerStreak.push(clicked);
+    simonGame.playerStreak.push(clicked);
+    var x = simonGame.playerStreak[simonGame.playerStreak.length - 1];
+    var y = simonGame.currentGame[simonGame.playerStreak.length - 1];
+    if (simonGame.playerStreak.length <= simonGame.currentGame.length) {
       colorHover(colorClicked);
 
-      var x = simonGame.playerStreak[simonGame.playerStreak.length - 1];
-      var y = simonGame.currentGame[simonGame.playerStreak.length - 1];
+
 
       if (x != y) {
         console.log('false');
@@ -96,7 +97,6 @@ $(document).ready(function() {
         }
       }
     }
-
   }
 
 
