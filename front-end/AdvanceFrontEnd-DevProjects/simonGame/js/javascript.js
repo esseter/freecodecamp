@@ -75,21 +75,17 @@ $(document).ready(function() {
   }
 
   function playerColor(colorClicked) {
-    var clicked = colorClicked;
-    simonGame.playerStreak.push(clicked);
+    simonGame.playerStreak.push(colorClicked);
+
     var x = simonGame.playerStreak[simonGame.playerStreak.length - 1];
     var y = simonGame.currentGame[simonGame.playerStreak.length - 1];
     if (simonGame.playerStreak.length <= simonGame.currentGame.length) {
       colorHover(colorClicked);
-
-
-
-      if (x != y) {
+      if (colorClicked != y) {
         console.log('false');
-        simonGame.playerStreak.splice(x, 1)
-        // need to remove the false one (last)
+        simonGame.playerStreak.splice(x, 1);
       }
-      else if (x == y){
+      else if (colorClicked == y){
         console.log('correct');
         if (simonGame.playerStreak.length === simonGame.currentGame.length) {
           randomColor();
