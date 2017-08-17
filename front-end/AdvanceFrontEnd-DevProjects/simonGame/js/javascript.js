@@ -51,6 +51,7 @@ $(document).ready(function() {
     } else {
       // we add the color within the current Game option
       simonGame.currentGame.push(simonGame.colors[result]);
+      addCount();
       return simonGame.colors[result];
     }
   };
@@ -59,7 +60,7 @@ $(document).ready(function() {
 
   function addCount() {
     simonGame.count++;
-    console.log(simonGame.count);
+    $('#number').html(simonGame.count);
   }
 
   function playComputerColor() {
@@ -81,27 +82,41 @@ $(document).ready(function() {
     if (simonGame.playerStreak.length < simonGame.currentGame.length) {
       colorHover(colorClicked);
       simonGame.playerStreak.push(clicked);
+      var x = simonGame.playerStreak[simonGame.playerStreak.length - 1];
+      var y = simonGame.currentGame[simonGame.playerStreak.length - 1];
+      if (x != y) {
+        console.log('false');
+        // need to remove the false one (last)
+      }
+      else if (x == y){
+        console.log('correct');
+        if (simonGame.playerStreak.length == simonGame.currentGame.length) {
+          randomColor();
+          playComputerColor();
+        }
+      }
     }
+
+  }
+
+  function checkColor(){
+
   }
 
   $('#red').click(function() {
     playerColor(simonGame.colors[1]);
-    console.log(simonGame.playerStreak);
   });
 
   $('#green').click(function() {
     playerColor(simonGame.colors[0]);
-    console.log(simonGame.playerStreak);
   });
 
   $('#yellow').click(function() {
     playerColor(simonGame.colors[2]);
-    console.log(simonGame.playerStreak);
   });
 
   $('#blue').click(function() {
     playerColor(simonGame.colors[3]);
-    console.log(simonGame.playerStreak);
   });
 
   $('.start-reset').click(function() {

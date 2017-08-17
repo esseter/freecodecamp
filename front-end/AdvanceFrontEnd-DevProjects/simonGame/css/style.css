@@ -237,4 +237,5 @@ input[type=radio]:checked+label:before {
   color: red;
   text-align: right;
   font-family: 'Gruppo', cursive;
+  padding-right: 2px;
 }
