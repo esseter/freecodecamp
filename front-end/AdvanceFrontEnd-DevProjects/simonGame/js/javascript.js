@@ -25,10 +25,7 @@ $(document).ready(function() {
     simonGame.playerStreak = [];
   };
 
-  function addCount() {
-    simonGame.count = simonGame.count + 1;
-    $('#screen').html(simonGame.count);
-  };
+
 
   // animations function on the color
 
@@ -80,17 +77,20 @@ $(document).ready(function() {
   function playerColor(colorClicked) {
     var clicked = colorClicked;
     if (simonGame.playerStreak.length < simonGame.currentGame.length) {
-      colorHover(colorClicked);
       simonGame.playerStreak.push(clicked);
+      colorHover(colorClicked);
+
       var x = simonGame.playerStreak[simonGame.playerStreak.length - 1];
       var y = simonGame.currentGame[simonGame.playerStreak.length - 1];
+
       if (x != y) {
         console.log('false');
+        simonGame.playerStreak.splice(x, 1)
         // need to remove the false one (last)
       }
       else if (x == y){
         console.log('correct');
-        if (simonGame.playerStreak.length == simonGame.currentGame.length) {
+        if (simonGame.playerStreak.length === simonGame.currentGame.length) {
           randomColor();
           playComputerColor();
         }
@@ -99,24 +99,28 @@ $(document).ready(function() {
 
   }
 
-  function checkColor(){
-
-  }
 
   $('#red').click(function() {
     playerColor(simonGame.colors[1]);
+    console.log(simonGame.playerStreak);
   });
 
   $('#green').click(function() {
     playerColor(simonGame.colors[0]);
+    console.log(simonGame.playerStreak);
+
   });
 
   $('#yellow').click(function() {
     playerColor(simonGame.colors[2]);
+    console.log(simonGame.playerStreak);
+
   });
 
   $('#blue').click(function() {
     playerColor(simonGame.colors[3]);
+    console.log(simonGame.playerStreak);
+
   });
 
   $('.start-reset').click(function() {
