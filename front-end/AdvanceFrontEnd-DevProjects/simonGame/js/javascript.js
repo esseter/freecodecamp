@@ -69,7 +69,7 @@ $(document).ready(function() {
       if (i >= max) {
         clearInterval(playComputerColor);
       }
-    }, 500)
+    }, 1000)
 
   }
 
@@ -89,7 +89,7 @@ $(document).ready(function() {
         console.log('correct');
         if (simonGame.playerStreak.length === simonGame.currentGame.length) {
           randomColor();
-          playComputerColor();
+          setTimeout(playComputerColor, 1000);
           simonGame.playerStreak = [];
         }
       }
@@ -100,33 +100,29 @@ $(document).ready(function() {
   $('#red').click(function() {
     simonGame.playerStreak.push(simonGame.colors[1]);
     playerColor(simonGame.colors[1]);
-    console.log(simonGame.playerStreak);
   });
 
   $('#green').click(function() {
     simonGame.playerStreak.push(simonGame.colors[0]);
     playerColor(simonGame.colors[0]);
-    console.log(simonGame.playerStreak);
 
   });
 
   $('#yellow').click(function() {
     simonGame.playerStreak.push(simonGame.colors[2]);
     playerColor(simonGame.colors[2]);
-    console.log(simonGame.playerStreak);
 
   });
 
   $('#blue').click(function() {
     simonGame.playerStreak.push(simonGame.colors[3]);
     playerColor(simonGame.colors[3]);
-    console.log(simonGame.playerStreak);
 
   });
 
   $('.start-reset').click(function() {
     randomColor();
-    playComputerColor();
+    setTimeout(playComputerColor, 1000);
   });
 
 });
