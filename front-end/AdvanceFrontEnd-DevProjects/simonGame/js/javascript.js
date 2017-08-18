@@ -67,29 +67,30 @@ $(document).ready(function() {
       colorHover(simonGame.currentGame[i]);
       i++;
       if (i >= max) {
-        simonGame.playerStreak = [];
         clearInterval(playComputerColor);
       }
-    }, 1000)
+    }, 500)
 
   }
 
   function playerColor(colorClicked) {
-    simonGame.playerStreak.push(colorClicked);
 
     var x = simonGame.playerStreak[simonGame.playerStreak.length - 1];
     var y = simonGame.currentGame[simonGame.playerStreak.length - 1];
     if (simonGame.playerStreak.length <= simonGame.currentGame.length) {
       colorHover(colorClicked);
       if (colorClicked != y) {
+        console.log(y);
         console.log('false');
         simonGame.playerStreak.splice(x, 1);
+        return false;
       }
       else if (colorClicked == y){
         console.log('correct');
         if (simonGame.playerStreak.length === simonGame.currentGame.length) {
           randomColor();
           playComputerColor();
+          simonGame.playerStreak = [];
         }
       }
     }
@@ -97,23 +98,27 @@ $(document).ready(function() {
 
 
   $('#red').click(function() {
+    simonGame.playerStreak.push(simonGame.colors[1]);
     playerColor(simonGame.colors[1]);
     console.log(simonGame.playerStreak);
   });
 
   $('#green').click(function() {
+    simonGame.playerStreak.push(simonGame.colors[0]);
     playerColor(simonGame.colors[0]);
     console.log(simonGame.playerStreak);
 
   });
 
   $('#yellow').click(function() {
+    simonGame.playerStreak.push(simonGame.colors[2]);
     playerColor(simonGame.colors[2]);
     console.log(simonGame.playerStreak);
 
   });
 
   $('#blue').click(function() {
+    simonGame.playerStreak.push(simonGame.colors[3]);
     playerColor(simonGame.colors[3]);
     console.log(simonGame.playerStreak);
 
