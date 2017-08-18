@@ -37,9 +37,9 @@ $(document).ready(function() {
     setTimeout(function() {
       $('#' + color).removeClass(color + "bright");
       $('#' + color).addClass(color);
+      simonGame.sound[color].play();
     }, 500);
   };
-
 
   // choosing a random color function
 
@@ -68,7 +68,6 @@ $(document).ready(function() {
     var max = simonGame.currentGame.length;
     setInterval(function() {
       colorHover(simonGame.currentGame[i]);
-      simonGame.sound[simonGame.currentGame[i]].play();
       i++;
       if (i >= max) {
 
