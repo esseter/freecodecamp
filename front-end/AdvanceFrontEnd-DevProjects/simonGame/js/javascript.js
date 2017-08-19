@@ -35,9 +35,9 @@ $(document).ready(function() {
     $('#' + color).removeClass(color);
     $('#' + color).addClass(color + "bright");
     setTimeout(function() {
+      simonGame.sound[color].play();
       $('#' + color).removeClass(color + "bright");
       $('#' + color).addClass(color);
-      simonGame.sound[color].play();
     }, 500);
   };
 
@@ -111,27 +111,23 @@ $(document).ready(function() {
 
 
   $('#red').click(function() {
-    simonGame.sound.red.play();
     simonGame.playerStreak.push(simonGame.colors[1]);
     playerColor(simonGame.colors[1]);
   });
 
   $('#green').click(function() {
-    simonGame.sound.green.play();
     simonGame.playerStreak.push(simonGame.colors[0]);
     playerColor(simonGame.colors[0]);
 
   });
 
   $('#yellow').click(function() {
-    simonGame.sound.yellow.play();
     simonGame.playerStreak.push(simonGame.colors[2]);
     playerColor(simonGame.colors[2]);
 
   });
 
   $('#blue').click(function() {
-    simonGame.sound.blue.play();
     simonGame.playerStreak.push(simonGame.colors[3]);
     playerColor(simonGame.colors[3]);
 
