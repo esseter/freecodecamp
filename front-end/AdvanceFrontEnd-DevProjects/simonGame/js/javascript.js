@@ -27,7 +27,15 @@ $(document).ready(function() {
     $('#number').html(simonGame.count);
   };
 
-
+  function godlike() {
+    var isGodlikeChecked = $('#godlike').prop('checked');
+    if (isGodlikeChecked === true) {
+      simonGame.godlike = true;
+    }
+    else {
+      simonGame = false;
+    }
+  }
 
   // animations function on the color
 
@@ -88,10 +96,16 @@ $(document).ready(function() {
       if (x != y) {
         console.log('false');
         simonGame.mistake++;
-        if (simonGame.mistake >= 3) {
+        godlike();
+        if (simonGame.mistake >= 3 && simonGame.godlike == false) {
           alert('you looser');
           startNewGame();
         }
+        else if (simonGame.mistake > 0 && simonGame.godlike == true) {
+          alert('you lost, try a new game. You are still far from being a Simon God');
+          startNewGame();
+        }
+
         else {
           alert('you have ' + (3 - simonGame.mistake) + 'left !');
           simonGame.playerStreak.splice(x, 1);
@@ -111,6 +125,7 @@ $(document).ready(function() {
 
 
   $('#red').click(function() {
+    godlike();
     simonGame.playerStreak.push(simonGame.colors[1]);
     playerColor(simonGame.colors[1]);
   });
