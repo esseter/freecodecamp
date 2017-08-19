@@ -36,6 +36,18 @@ $(document).ready(function() {
       simonGame.godlike = false;
     }
   }
+  // pop-up
+  function appearPopUp(text) {
+    $('#textzone').html(text);
+    $('#textzone').css('display', 'block');
+    $('#redPage').css({'height': '100vh','opacity' :'1'});
+    setTimeout(function(){
+      $('#redPage').css({'height': '0','opacity' :'0'});
+    },2000);
+    setTimeout(function(){
+      $('#textzone').css('display', 'none');
+    },3000);
+  }
 
   // animations function on the color
 
@@ -99,19 +111,21 @@ $(document).ready(function() {
       //mistake is made
       if (x != y) {
         console.log('false');
+        var finishText = 'you lost, start again';
         simonGame.mistake++;
         godlike(); // check if godlike is on or not;
         if (simonGame.mistake >= 3 && simonGame.godlike == false) {
-          alert('you looser');
+          appearPopUp(finishText);
           startNewGame();
         }
         else if (simonGame.mistake > 0 && simonGame.godlike == true) {
-          alert('you lost, try a new game. You are still far from being a Simon God');
+          appearPopUp(finishText);
           startNewGame();
         }
 
         else {
-          setTimeout(alert('you have ' + (3 - simonGame.mistake) + ' mistake(s)left !'), 2000);
+          var tryAgainText = 'you have ' + (3 - simonGame.mistake) + ' mistake(s)left !';
+          appearPopUp(tryAgainText);
           simonGame.playerStreak.splice(x, 1);
         }
 
@@ -126,7 +140,8 @@ $(document).ready(function() {
           simonGame.playerStreak = [];
         }
         else if (simonGame.playerStreak.length === simonGame.currentGame.length && simonGame.currentGame.length == 5) {
-          alert('wow you won !!!');
+          var winningText = 'wow you won !!';
+          appearPopUp(winningText);
           startNewGame();
         }
       }
@@ -162,15 +177,16 @@ $(document).ready(function() {
       randomColor();
       setTimeout(playComputerColor, 1000);
     }
-
   });
 
   $('#normal').click(function() {
-    alert('you changed to normal mode (3 mistakes max)');
+    var changeNormal ='you changed to normal mode (3 mistakes max)';
+    appearPopUp(changeNormal);
     startNewGame();
   });
   $('#godlike').click(function() {
-    alert('you changed to godlike mode (no mistake allowed)');
+    var changeGodlike = 'you changed to godlike mode (no mistake allowed)';
+    appearPopUp(changeGodlike);
     startNewGame();
   });
 

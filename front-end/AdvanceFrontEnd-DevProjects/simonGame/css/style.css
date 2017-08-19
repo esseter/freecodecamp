@@ -239,3 +239,29 @@ input[type=radio]:checked+label:before {
   font-family: 'Gruppo', cursive;
   padding-right: 2px;
 }
+
+#redPage {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  height: 0;
+  top: 0;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+}
+
+#textzone {
+  margin: 25vh auto 25vh auto;
+  width: 330px;
+  background: red;
+  display: none;
+  z-index: -5;
+  top: -10000px;
+  text-align: center;
+  padding-top: 135px;
+  padding-bottom: 135px;
+  font-size: 30px;
+  font-weight: bold;
+  border: 3px white solid;
+}
