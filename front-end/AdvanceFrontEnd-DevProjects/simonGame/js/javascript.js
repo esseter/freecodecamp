@@ -33,7 +33,7 @@ $(document).ready(function() {
       simonGame.godlike = true;
     }
     else {
-      simonGame = false;
+      simonGame.godlike = false;
     }
   }
 
@@ -44,6 +44,7 @@ $(document).ready(function() {
     $('#' + color).addClass(color + "bright");
     setTimeout(function() {
       simonGame.sound[color].play();
+
       $('#' + color).removeClass(color + "bright");
       $('#' + color).addClass(color);
     }, 500);
@@ -75,12 +76,13 @@ $(document).ready(function() {
     $('.start-reset').html('wait');
     var max = simonGame.currentGame.length;
     setInterval(function() {
-      colorHover(simonGame.currentGame[i]);
-      i++;
-      if (i >= max) {
-
+      if (i < max) {
+        console.log(i);
+        colorHover(simonGame.currentGame[i]);
+        i++;
+      }
+      else if (i >= max) {
         clearInterval(playComputerColor);
-
       }
     }, 1000)
     setTimeout($('.start-reset').html('GO'))
@@ -93,10 +95,12 @@ $(document).ready(function() {
     var y = simonGame.currentGame[simonGame.playerStreak.length - 1];
     if (simonGame.playerStreak.length <= simonGame.currentGame.length) {
       colorHover(colorClicked);
+
+      //mistake is made
       if (x != y) {
         console.log('false');
         simonGame.mistake++;
-        godlike();
+        godlike(); // check if godlike is on or not;
         if (simonGame.mistake >= 3 && simonGame.godlike == false) {
           alert('you looser');
           startNewGame();
@@ -107,17 +111,23 @@ $(document).ready(function() {
         }
 
         else {
-          alert('you have ' + (3 - simonGame.mistake) + 'left !');
+          setTimeout(alert('you have ' + (3 - simonGame.mistake) + ' mistake(s)left !'), 2000);
           simonGame.playerStreak.splice(x, 1);
         }
 
       }
+
+      // good answer
       else if (x == y){
         console.log('correct');
-        if (simonGame.playerStreak.length === simonGame.currentGame.length) {
+        if (simonGame.playerStreak.length === simonGame.currentGame.length && simonGame.currentGame.length < 5) {
           randomColor();
           setTimeout(playComputerColor, 1000);
           simonGame.playerStreak = [];
+        }
+        else if (simonGame.playerStreak.length === simonGame.currentGame.length && simonGame.currentGame.length == 5) {
+          alert('wow you won !!!');
+          startNewGame();
         }
       }
     }
@@ -125,7 +135,6 @@ $(document).ready(function() {
 
 
   $('#red').click(function() {
-    godlike();
     simonGame.playerStreak.push(simonGame.colors[1]);
     playerColor(simonGame.colors[1]);
   });
@@ -154,6 +163,15 @@ $(document).ready(function() {
       setTimeout(playComputerColor, 1000);
     }
 
+  });
+
+  $('#normal').click(function() {
+    alert('you changed to normal mode (3 mistakes max)');
+    startNewGame();
+  });
+  $('#godlike').click(function() {
+    alert('you changed to godlike mode (no mistake allowed)');
+    startNewGame();
   });
 
 });
