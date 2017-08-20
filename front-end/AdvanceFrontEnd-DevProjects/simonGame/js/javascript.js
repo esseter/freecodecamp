@@ -102,7 +102,7 @@ $(document).ready(function() {
         clearInterval(playComputerColor);
       }
     }, 1000)
-    setTimeout($('.start-reset').html('GO'))
+    setTimeout($('.start-reset').html('QUIT'))
   };
 
   function playerColor(colorClicked) {
@@ -138,11 +138,11 @@ $(document).ready(function() {
       // good answer
       else if (x == y) {
         console.log('correct');
-        if (simonGame.playerStreak.length === simonGame.currentGame.length && simonGame.currentGame.length < 5) {
+        if (simonGame.playerStreak.length === simonGame.currentGame.length && simonGame.currentGame.length < 20) {
           randomColor();
           setTimeout(playComputerColor, 1000);
           simonGame.playerStreak = [];
-        } else if (simonGame.playerStreak.length === simonGame.currentGame.length && simonGame.currentGame.length == 5) {
+        } else if (simonGame.playerStreak.length === simonGame.currentGame.length && simonGame.currentGame.length == 20) {
           var winningText = 'wow you won !!';
           appearPopUp(winningText);
           startNewGame();
@@ -179,6 +179,9 @@ $(document).ready(function() {
     if (simonGame.count == 0) {
       randomColor();
       setTimeout(playComputerColor, 1000);
+    }
+    else if (simonGame.count > 0) {
+      startNewGame();
     }
   });
 
