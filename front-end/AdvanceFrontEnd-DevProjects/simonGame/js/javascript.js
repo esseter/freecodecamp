@@ -25,6 +25,7 @@ $(document).ready(function() {
     simonGame.currentGame = [];
     simonGame.playerStreak = [];
     $('#number').html(simonGame.count);
+    $('.start-reset').html('START');
   };
 
   function godlike() {
@@ -127,7 +128,9 @@ $(document).ready(function() {
         } else {
           var tryAgainText = 'you have ' + (3 - simonGame.mistake) + ' mistake(s)left !';
           appearPopUp(tryAgainText);
+          setTimeout(playComputerColor,2500);
           simonGame.playerStreak.splice(x, 1);
+          simonGame.playerStreak = [];
         }
 
       }
